@@ -3,6 +3,9 @@ import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/ico
 import { Menu } from 'antd';
 const items = [
     {
+        label: '로고'
+    }
+    ,{
         label: '운동복',
         key: 'SubMenu1',
         icon: <SettingOutlined />,
@@ -101,8 +104,16 @@ const Layout2 = () => {
     };
     return (
         <>
-        하이
-        <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
+        <div className='bg-[red]'>
+            로고
+        <Menu 
+        onClick={onClick} 
+        selectedKeys={[current]} 
+        mode="horizontal" 
+        items={items} 
+        className='flex justify-center'
+        />;
+        </div>
         </>
     )
 };

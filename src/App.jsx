@@ -1,12 +1,10 @@
 import React from "react";
-import Layout2 from "./pages/Layout2";
-import Layout3 from "./pages/Layout3";
+import Layout from "./components/common/Layout";
 
 const App = () => {
     return (
         <div>
-            <Layout2 />
-            <Layout3 />
+            <Layout />
         </div>
     );
 };
