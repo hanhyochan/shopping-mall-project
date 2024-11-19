@@ -1,14 +1,10 @@
-import React, {useState} from "react";
-import {AppstoreOutlined, MailOutlined, SettingOutlined} from "@ant-design/icons";
-import {Menu} from "antd";
-import {Typography} from "antd";
+import {SearchOutlined, MenuOutlined} from "@ant-design/icons";
+import {Menu, Input, Button} from "antd";
 
-const {Title} = Typography;
 const items = [
     {
-        label: "운동복",
+        label: "의류",
         key: "SubMenu1",
-        icon: <SettingOutlined />,
         children: [
             {
                 label: "Option 1",
@@ -23,7 +19,6 @@ const items = [
     {
         label: "운동복",
         key: "SubMenu2",
-        icon: <SettingOutlined />,
         children: [
             {
                 label: "Option 1",
@@ -36,9 +31,8 @@ const items = [
         ],
     },
     {
-        label: "운동복",
+        label: "신발",
         key: "SubMenu3",
-        icon: <SettingOutlined />,
         children: [
             {
                 label: "Option 1",
@@ -51,9 +45,8 @@ const items = [
         ],
     },
     {
-        label: "운동복",
+        label: "악세서리",
         key: "SubMenu4",
-        icon: <SettingOutlined />,
         children: [
             {
                 label: "Option 1",
@@ -66,24 +59,8 @@ const items = [
         ],
     },
     {
-        label: "운동복",
+        label: "SALE",
         key: "SubMenu5",
-        icon: <SettingOutlined />,
-        children: [
-            {
-                label: "Option 1",
-                key: "setting:1",
-            },
-            {
-                label: "Option 2",
-                key: "setting:2",
-            },
-        ],
-    },
-    {
-        label: "운동복",
-        key: "SubMenu6",
-        icon: <SettingOutlined />,
         children: [
             {
                 label: "Option 1",
@@ -96,29 +73,38 @@ const items = [
         ],
     },
 ];
+
 const CategoryNav = () => {
-    const [current, setCurrent] = useState("mail");
-    const onClick = e => {
-        console.log("click ", e);
-        setCurrent(e.key);
-    };
     return (
-        <>
-            <div className="flex justify-between">
-                <Title
-                    level={3}
-                    style={{margin: 0}}
-                >
-                    MyApp
-                </Title>
+        <div className="flex items-center justify-between gap-4 relative">
+            <div>
+                <Button
+                    className="border-0"
+                    icon={<MenuOutlined />}
+                />
+                <Button className="underline border-0">Best 10</Button>
+            </div>
+
+            <div className="flex-1 flex justify-center absolute left-1/2 transform -translate-x-1/2">
                 <Menu
-                    onClick={onClick}
-                    selectedKeys={[current]}
                     mode="horizontal"
                     items={items}
+                    className="!border-0 min-w-[330px]"
                 />
             </div>
-        </>
+
+            <div className="flex items-center gap-2 w-64">
+                <Input
+                    placeholder="상품을 검색해보세요"
+                    className="w-full"
+                />
+                <Button
+                    className="border-0"
+                    icon={<SearchOutlined />}
+                />
+            </div>
+        </div>
     );
 };
+
 export default CategoryNav;
