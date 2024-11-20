@@ -109,7 +109,7 @@ const TopNav = () => {
                     level={3}
                     style={{margin: 0}}
                 >
-                    MyApp
+                    MyApp 
                 </Title>
                 <Menu
                     onClick={onClick}
