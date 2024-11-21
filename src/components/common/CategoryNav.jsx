@@ -76,7 +76,7 @@ const items = [
 
 const CategoryNav = () => {
     return (
-        <div className="flex items-center justify-between gap-4 relative">
+        <div className="flex items-center justify-between gap-4 relative md:w-[80vw] xl: w-[90vw]">
             <div>
                 <Button
                     className="border-0"
@@ -89,11 +89,11 @@ const CategoryNav = () => {
                 <Menu
                     mode="horizontal"
                     items={items}
-                    className="!border-0 min-w-[330px]"
+                    className="!border-0 min-w-350"
                 />
             </div>
 
-            <div className="flex items-center gap-2 w-64">
+            <div className="flex items-center gap-2 w-250">
                 <Input
                     placeholder="상품을 검색해보세요"
                     className="w-full"
