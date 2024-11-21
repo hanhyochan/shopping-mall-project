@@ -9,7 +9,7 @@ const TopNav = () => {
                 <div className="flex gap-[20px] text-[10px]">
                     <button>로그인</button>
                     <button>회원가입</button>
-                    <button>장바구니</button>
+                    <button>장바구니</button> 
                     <button>마이페이지</button>
                     <button>게시판</button>
                 </div>
