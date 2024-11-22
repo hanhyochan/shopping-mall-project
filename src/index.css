@@ -11,3 +11,31 @@ body {
     justify-content: center;
     align-items: center;
 }
+/* swiper */
+.swiper {
+    padding: 30px 0 !important;
+}
+.swiper-slide {
+    width: 100% !important;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+}
+.swiper-pagination-bullet {
+    opacity: 0.7;
+}
+.swiper-pagination-bullet-active {
+    background-color: #000 !important;
+    opacity: 1;
+}
+.swiper-horizontal > .swiper-pagination-bullets {
+    bottom: -5px !important;
+}
+.swiper-button-prev,
+.swiper-button-next {
+    color: #000 !important;
+}
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 30px !important;
+}

@@ -1,10 +1,10 @@
-import React from 'react';
-
+import Layout from "../components/common/Layout";
+import MainSwiper from "../components/common/MainSwiper";
 const Main = () => {
     return (
-        <div>
-            
-        </div>
+        <Layout>
+            <MainSwiper />
+        </Layout>
     );
 };
 
