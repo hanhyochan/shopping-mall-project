@@ -75,8 +75,10 @@ const items = [
 
 const CategoryNav = () => {
     return (
-        <div className="flex items-center flex-col sm:flex-row justify-between gap-4 relative md:w-[80vw] xl: w-[90vw]">
-            <div className="hidden md:block">
+
+        <div className="relative flex items-center justify-between gap-4">
+            <div>
+
                 <Button
                     className="border-0"
                     icon={<MenuOutlined />}
@@ -84,7 +86,9 @@ const CategoryNav = () => {
                 <Button className="underline border-0 text-base">Best 10</Button>
             </div>
 
-            <div className="flex-1 flex justify-center static md:absolute md:left-1/2 md:transform md:-translate-x-1/2">
+
+            <div className="absolute flex justify-center flex-1 transform -translate-x-1/2 left-1/2">
+
                 <Menu
                     mode="horizontal"
                     items={items}
@@ -92,10 +96,12 @@ const CategoryNav = () => {
                 />
             </div>
 
-            <div className="flex items-center gap-2 sm:w-250 w-full">
+
+            <div className="flex items-center w-64 gap-2">
                 <Input
-                    placeholder="상품을 검색해보세요"
-                    className="w-full text-base"
+                    placeholder="상품을 검색해보세요.."
+                    className="w-full"
+
                 />
                 <Button
                     className="border-0"
