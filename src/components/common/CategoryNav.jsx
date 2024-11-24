@@ -8,11 +8,11 @@ const items = [
         children: [
             {
                 label: "Option 1",
-                key: "setting:1",
+                key: "SubMenu1:1",
             },
             {
                 label: "Option 2",
-                key: "setting:2",
+                key: "SubMenu1:2",
             },
         ],
     },
@@ -22,11 +22,11 @@ const items = [
         children: [
             {
                 label: "Option 1",
-                key: "setting:1",
+                key: "SubMenu2:1",
             },
             {
                 label: "Option 2",
-                key: "setting:2",
+                key: "SubMenu2:2",
             },
         ],
     },
@@ -36,11 +36,11 @@ const items = [
         children: [
             {
                 label: "Option 1",
-                key: "setting:1",
+                key: "SubMenu3:1",
             },
             {
                 label: "Option 2",
-                key: "setting:2",
+                key: "SubMenu3:2",
             },
         ],
     },
@@ -50,11 +50,11 @@ const items = [
         children: [
             {
                 label: "Option 1",
-                key: "setting:1",
+                key: "SubMenu4:1",
             },
             {
                 label: "Option 2",
-                key: "setting:2",
+                key: "SubMenu4:2",
             },
         ],
     },
@@ -64,11 +64,11 @@ const items = [
         children: [
             {
                 label: "Option 1",
-                key: "setting:1",
+                key: "SubMenu5:1",
             },
             {
                 label: "Option 2",
-                key: "setting:2",
+                key: "SubMenu5:2",
             },
         ],
     },
