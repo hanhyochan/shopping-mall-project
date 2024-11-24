@@ -5,7 +5,7 @@ import Main from "./pages/Main";
 const App = () => {
     return (
         <>
-            <Layout />
+            {/* <Layout /> */}
             <Main />
         </>
     );
