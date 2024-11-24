@@ -11,7 +11,7 @@ const Product = ({data}) => {
             </div>
             <p>{data.title}</p>
             <p>{data.price}</p>
-            <p>리뷰:{data.reviews.length}</p>
+            <p>리뷰:....{data.reviews.length}</p>
         </div>
     );
 };
