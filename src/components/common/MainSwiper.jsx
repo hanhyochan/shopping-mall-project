@@ -45,6 +45,7 @@ const MainSwiper = () => {
                     autoplay={{
                         delay: 3000,
                     }}
+                    className="!ml-[-10%] !mr-[-10%]"
                 >
                     {data.map(item => (
                         <SwiperSlide key={item.id}>
