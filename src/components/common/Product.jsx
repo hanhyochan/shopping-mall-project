@@ -27,6 +27,14 @@ const Product = ({data}) => {
             >
                 {like ? "❤️" : "♡"}
             </button>
+            <button
+                className="absolute right-0 top-10 text-[25px]"
+                onClick={e => {
+                    e.stopPropagation();
+                }}
+            >
+                🛒
+            </button>
             <div className="w-full overflow-hidden h-60 aspect-w-1 aspect-h-1">
                 <img
                     src={data.images[0]}

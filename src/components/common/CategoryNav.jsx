@@ -1,80 +1,127 @@
 import {SearchOutlined, MenuOutlined} from "@ant-design/icons";
 import {Menu, Input, Button} from "antd";
-
-const items = [
-    {
-        label: "의류",
-        key: "SubMenu1",
-        children: [
-            {
-                label: "Option 1",
-                key: "SubMenu1:1",
-            },
-            {
-                label: "Option 2",
-                key: "SubMenu1:2",
-            },
-        ],
-    },
-    {
-        label: "운동복",
-        key: "SubMenu2",
-        children: [
-            {
-                label: "Option 1",
-                key: "SubMenu2:1",
-            },
-            {
-                label: "Option 2",
-                key: "SubMenu2:2",
-            },
-        ],
-    },
-    {
-        label: "신발",
-        key: "SubMenu3",
-        children: [
-            {
-                label: "Option 1",
-                key: "SubMenu3:1",
-            },
-            {
-                label: "Option 2",
-                key: "SubMenu3:2",
-            },
-        ],
-    },
-    {
-        label: "악세서리",
-        key: "SubMenu4",
-        children: [
-            {
-                label: "Option 1",
-                key: "SubMenu4:1",
-            },
-            {
-                label: "Option 2",
-                key: "SubMenu4:2",
-            },
-        ],
-    },
-    {
-        label: "SALE",
-        key: "SubMenu5",
-        children: [
-            {
-                label: "Option 1",
-                key: "SubMenu5:1",
-            },
-            {
-                label: "Option 2",
-                key: "SubMenu5:2",
-            },
-        ],
-    },
-];
+import {useNavigate} from "react-router-dom";
 
 const CategoryNav = () => {
+    // 서브 카테고리 페이지 이동
+    const navigate = useNavigate();
+    const navigateSub = e => {
+        const Subcategory = e.target.textContent;
+        navigate(`category?subcategory=${Subcategory}`);
+    };
+
+    const items = [
+        {
+            label: "의류",
+            key: "SubMenu1",
+            children: [
+                {
+                    label: (
+                        <span
+                            onClick={e => {
+                                navigateSub(e);
+                            }}
+                        >
+                            beauty
+                        </span>
+                    ),
+                    key: "SubMenu1:1",
+                },
+                {
+                    label: (
+                        <span
+                            onClick={e => {
+                                navigateSub(e);
+                            }}
+                        >
+                            groceries
+                        </span>
+                    ),
+                    key: "SubMenu1:2",
+                },
+                {
+                    label: (
+                        <span
+                            onClick={e => {
+                                navigateSub(e);
+                            }}
+                        >
+                            furniture
+                        </span>
+                    ),
+                    key: "SubMenu1:3",
+                },
+                {
+                    label: (
+                        <span
+                            onClick={e => {
+                                navigateSub(e);
+                            }}
+                        >
+                            fragrances
+                        </span>
+                    ),
+                    key: "SubMenu1:4",
+                },
+            ],
+        },
+        {
+            label: "운동복",
+            key: "SubMenu2",
+            children: [
+                {
+                    label: "Option 1",
+                    key: "SubMenu2:1",
+                },
+                {
+                    label: "Option 2",
+                    key: "SubMenu2:2",
+                },
+            ],
+        },
+        {
+            label: "신발",
+            key: "SubMenu3",
+            children: [
+                {
+                    label: "Option 1",
+                    key: "SubMenu3:1",
+                },
+                {
+                    label: "Option 2",
+                    key: "SubMenu3:2",
+                },
+            ],
+        },
+        {
+            label: "악세서리",
+            key: "SubMenu4",
+            children: [
+                {
+                    label: "Option 1",
+                    key: "SubMenu4:1",
+                },
+                {
+                    label: "Option 2",
+                    key: "SubMenu4:2",
+                },
+            ],
+        },
+        {
+            label: "SALE",
+            key: "SubMenu5",
+            children: [
+                {
+                    label: "Option 1",
+                    key: "SubMenu5:1",
+                },
+                {
+                    label: "Option 2",
+                    key: "SubMenu5:2",
+                },
+            ],
+        },
+    ];
     return (
         <div className="flex items-center flex-col sm:flex-row justify-between gap-4 pt-[20px] relative md:w-[80vw] xl: w-[90vw]">
             <div className="hidden md:flex">

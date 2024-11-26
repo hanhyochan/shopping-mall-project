@@ -10,16 +10,14 @@ const Main = () => {
     useEffect(() => {
         const fetchAllProduct = async () => {
             const AllProductData = await getAllProduct();
-            console.log(AllProductData);
             setProduct(AllProductData);
         };
         fetchAllProduct();
     }, []);
-
     return (
         <>
             <MainSwiper />
-            <h1 className="pb-5 text-3xl">Now Hot Click</h1>
+            <h2 className="pb-5 text-3xl">Now Hot Click</h2>
             <div className="flex flex-wrap md:w-[80vw] xl: w-[90vw]">
                 {product?.map(item => (
                     <Product
@@ -29,7 +27,7 @@ const Main = () => {
                 ))}
             </div>
             <hr className="my-12" />
-            <h1 className="pb-5 text-3xl">New Arrival</h1>
+            <h2 className="pb-5 text-3xl">New Arrival</h2>
             <div className="flex flex-wrap md:w-[80vw] xl: w-[90vw]">
                 {product?.map(item => (
                     <Product
