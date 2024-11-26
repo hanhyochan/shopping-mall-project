@@ -77,7 +77,7 @@ const items = [
 const CategoryNav = () => {
     return (
         <div className="flex items-center flex-col sm:flex-row justify-between gap-4 pt-[20px] relative md:w-[80vw] xl: w-[90vw]">
-            <div className="flex hidden md:flex">
+            <div className="hidden md:flex">
                 <Button
                     className="border-0"
                     icon={<MenuOutlined />}
