@@ -10,7 +10,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
+
 /* swiper */
 .swiper {
     padding: 30px 0 !important;
