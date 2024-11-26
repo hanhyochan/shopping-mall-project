@@ -43,7 +43,7 @@ const MainSwiper = () => {
                     navigation
                     pagination={{clickable: true, type: "bullets"}}
                     autoplay={{
-                        delay: 3000,
+                        delay: 4000,
                     }}
                     className="!ml-[-10%] !mr-[-10%]"
                 >
