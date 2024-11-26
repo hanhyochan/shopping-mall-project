@@ -8,7 +8,7 @@ const Layout = ({children}) => {
         <>
             <TopNav />
             <CategoryNav />
-            <main className="md:w-[80vw] xl: w-[90vw] mx-auto">{children}</main>
+            <main className="md:w-[80vw] xl: w-[90vw] mx-auto pb-[450px]">{children}</main>
             <Footer />
         </>
     );
