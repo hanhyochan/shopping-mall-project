@@ -9,7 +9,7 @@ const TopNav = () => {
             <div className="flex justify-between py-[10px] items-center md:w-[80vw] xl: w-[90vw]">
                 <span
                     onClick={() => navigate("/")}
-                    className="text-2xl"
+                    className="text-2xl cursor-pointer"
                 >
                     MyApp
                 </span>

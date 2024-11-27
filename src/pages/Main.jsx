@@ -1,6 +1,6 @@
 import {useEffect} from "react";
-import MainSwiper from "../components/common/MainSwiper";
-import Product from "../components/common/Product";
+import MainSwiper from "../components/MainSwiper";
+import Product from "../components/Product";
 import {getAllProduct} from "../api/productApi";
 import {useState} from "react";
 
