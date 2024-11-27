@@ -19,7 +19,17 @@ const CategoryDetail = () => {
             setCategoryProduct(categoryProduct);
         };
         fetchCategoryProduct();
-    }, []);
+    }, [subCategory]);
+
+    // 낮은가격 필터링
+    const sortByLowPrice = () => {
+        setCategoryProduct(prev => [...prev].sort((a, b) => a.price - b.price));
+    };
+
+    // 높은가격 필터링
+    const sortByHighPrice = () => {
+        setCategoryProduct(prev => [...prev].sort((a, b) => b.price - a.price));
+    };
 
     return (
         <>
@@ -30,8 +40,28 @@ const CategoryDetail = () => {
                 <div className="flex items-center justify-between pb-5">
                     <h2 className="pb-5 text-3xl pt-10">{subCategory}</h2>
                     <div>
-                        <Button className="mr-2">낮은가격</Button>
-                        <Button>높은가격</Button>
+                        <Button
+                            type="primary"
+                            className="mr-2"
+                        >
+                            인기순
+                        </Button>
+                        <Button
+                            color="default"
+                            variant="filled"
+                            className="mr-2"
+                            onClick={sortByLowPrice}
+                        >
+                            낮은가격
+                        </Button>
+                        <Button
+                            color="default"
+                            variant="filled"
+                            type="warning"
+                            onClick={sortByHighPrice}
+                        >
+                            높은가격
+                        </Button>
                     </div>
                 </div>
 
@@ -47,8 +77,28 @@ const CategoryDetail = () => {
                 <div className="flex items-center justify-between pb-5">
                     <h2 className="pb-5 text-3xl">{subCategory}</h2>
                     <div>
-                        <Button className="mr-2">낮은가격</Button>
-                        <Button>높은가격</Button>
+                        <Button
+                            type="primary"
+                            className="mr-2"
+                        >
+                            인기순
+                        </Button>
+                        <Button
+                            color="default"
+                            variant="filled"
+                            className="mr-2"
+                            onClick={sortByLowPrice}
+                        >
+                            낮은가격
+                        </Button>
+                        <Button
+                            color="default"
+                            variant="filled"
+                            type="warning"
+                            onClick={sortByHighPrice}
+                        >
+                            높은가격
+                        </Button>
                     </div>
                 </div>
                 <div className="flex flex-wrap md:w-[80vw] xl: w-[90vw]">
