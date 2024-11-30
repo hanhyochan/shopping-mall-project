@@ -14,6 +14,10 @@ const Main = () => {
         };
         fetchAllProduct();
     }, []);
+    // console.log(product)
+    const a = Object.values(product).flat().map(el => el.item.map(ell => ell.item).flat().map(elll => elll))
+    console.log(a)
+
     return (
         <>
             <MainSwiper />

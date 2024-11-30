@@ -8,14 +8,12 @@ const CategoryDetail = () => {
     // url 파라미터값 갖고오기
     const [searchParams] = useSearchParams();
     const subCategory = searchParams.get("subcategory");
-    console.log(subCategory);
     const [categoryProduct, setCategoryProduct] = useState([]);
-
+console.log(categoryProduct)
     // 데이터 페치
     useEffect(() => {
         const fetchCategoryProduct = async () => {
             const categoryProduct = await getProductByCategory(subCategory);
-            console.log(categoryProduct);
             setCategoryProduct(categoryProduct);
         };
         fetchCategoryProduct();
