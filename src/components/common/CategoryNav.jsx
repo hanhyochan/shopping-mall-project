@@ -182,7 +182,7 @@ const CategoryNav = () => {
                     <Button
                         className="border-0"
                         icon={<MenuOutlined />}
-                    />
+                    /> 
                     <Button className="text-base underline border-0">Best 10</Button>
                 </div>
 
@@ -196,7 +196,7 @@ const CategoryNav = () => {
 
                 <div className="flex items-center gap-2 sm:w-[250px] w-full">
                     <Input
-                        placeholder="상품을 검색해보세요"
+                        placeholder="상품을 검색해보세요."
                         className="w-full text-base"
                     />
                     <Button
