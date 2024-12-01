@@ -9,8 +9,6 @@ const ProductDetail = () => {
     const { productId } = useParams();
     const [selectedProduct, setSelectedProduct] = useState({ images: [] });
     const [favoriteProducts, setFavoriteProducts] = useState([])
-    // const [modalView, setModalView] = useState(false)
-    // setModalView(() => !modalView)
 
     useEffect(() => {
         const fetchSelectedProduct = async () => {
@@ -23,7 +21,7 @@ const ProductDetail = () => {
     const addfavoriteProducts = () => {
         setFavoriteProducts([...favoriteProducts, selectedProduct])
     }
-
+console.log(favoriteProducts)
     return (
         <>
             <div className="my-20 grid h-180 grid-cols-2 grid-rows-1 gap-[5%]">
