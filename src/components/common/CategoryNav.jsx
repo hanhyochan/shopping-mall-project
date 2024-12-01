@@ -1,8 +1,8 @@
-import {SearchOutlined, MenuOutlined} from "@ant-design/icons";
-import {Menu, Input, Button} from "antd";
-import {useState, useEffect, useRef} from "react";
-import {useNavigate} from "react-router-dom";
-import {getAllProduct} from "../../api/productApi";
+import { SearchOutlined, MenuOutlined } from "@ant-design/icons";
+import { Menu, Input, Button } from "antd";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { getAllProduct } from "../../api/productApi";
 
 const CategoryNav = () => {
     // 서브 카테고리 페이지 이동
@@ -20,7 +20,6 @@ const CategoryNav = () => {
         fetchAllProduct();
     }, []);
 
-    // 1. 고유한 category만 추출
     const uniqueCategories = [...new Set(pro_category.map(item => item.category))];
 
     // 2. 고유한 category에 해당하는 항목들만 추출하여 아이템 배열 구성
@@ -39,8 +38,6 @@ const CategoryNav = () => {
             })),
         };
     });
-
-    console.log(items);
 
     // 스크롤
     const targetRef = useRef(null);
@@ -66,7 +63,7 @@ const CategoryNav = () => {
                     <Button
                         className="border-0"
                         icon={<MenuOutlined />}
-                    />
+                    /> 
                     <Button className="text-base underline border-0">Best 10</Button>
                 </div>
 
@@ -80,7 +77,7 @@ const CategoryNav = () => {
 
                 <div className="flex items-center gap-2 sm:w-[250px] w-full">
                     <Input
-                        placeholder="상품을 검색해보세요"
+                        placeholder="상품을 검색해보세요."
                         className="w-full text-base"
                     />
                     <Button
@@ -90,7 +87,11 @@ const CategoryNav = () => {
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     );
+=======
+    )
+>>>>>>> f5a625e19aa7d315cf4b1539a49df66990507ce1
 };
 
 export default CategoryNav;

@@ -4,6 +4,7 @@ import ProductDetail from "./pages/ProductDetail";
 import CategoryDetail from "./pages/CategoryDetail";
 import {Routes, Route} from "react-router-dom";
 import Layout from "./components/common/Layout";
+import MyPage from "./pages/MyPage";
 
 const App = () => {
     return (
@@ -21,6 +22,10 @@ const App = () => {
                     <Route
                         path="/category"
                         element={<CategoryDetail />}
+                    />
+                    <Route
+                        path="/myPage"
+                        element={<MyPage />}
                     />
                 </Routes>
             </Layout>

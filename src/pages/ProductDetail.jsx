@@ -2,20 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSelectedProduct } from "../api/productApi";
 import ProductDetailsTab from "../components/ProductDetailsTab";
+import ProductColors from "../components/common/ProductColors";
+import ProductSizes from "../components/common/ProductSizes";
 
 const ProductDetail = () => {
     const { productId } = useParams();
     const [selectedProduct, setSelectedProduct] = useState({ images: [] });
+    const [favoriteProducts, setFavoriteProducts] = useState([])
 
     useEffect(() => {
         const fetchSelectedProduct = async () => {
             const selectedProductData = await getSelectedProduct(productId);
-            console.log(selectedProductData)
             setSelectedProduct(selectedProductData);
         };
         fetchSelectedProduct();
     }, []);
-console.log(selectedProduct)
+
+    const addfavoriteProducts = () => {
+        setFavoriteProducts([...favoriteProducts, selectedProduct])
+    }
+console.log(favoriteProducts)
     return (
         <>
             <div className="my-20 grid h-180 grid-cols-2 grid-rows-1 gap-[5%]">
@@ -29,7 +35,7 @@ console.log(selectedProduct)
 
                 <div className="grid grid-cols-1 grid-rows-2">
                     <div className="flex flex-col gap-6">
-                        <h1 className="text-2xl">{selectedProduct.title}</h1>
+                        <h1 className="text-2xl">{selectedProduct.name}</h1>
                         <span className="text-2xl font-semibold">{selectedProduct.price}원</span>
                         <div className="flex items-center gap-5">
                             <p className="text-lg font-medium">배송비</p>
@@ -38,16 +44,11 @@ console.log(selectedProduct)
                         <hr></hr>
                         <div className="flex items-center gap-5">
                             <p className="text-lg ">Colors: </p>
-                            <div className="w-7 h-7 rounded-full bg-[#86c8a7]"></div>
-                            <div className="w-7 h-7 rounded-full bg-[#c8b686]"></div>
+                            <ProductColors key={selectedProduct.id + 1} data={selectedProduct.option_colors}/>
                         </div>
                         <div className="flex items-center gap-5">
                             <p className="text-lg ">Sizes: </p>
-                            <div className="flex items-center justify-center w-8 h-8 text-base border border-gray-300 rounded-md">xs</div>
-                            <div className="flex items-center justify-center w-8 h-8 text-base border border-gray-300 rounded-md">s</div>
-                            <div className="flex items-center justify-center w-8 h-8 text-base border border-gray-300 rounded-md">m</div>
-                            <div className="flex items-center justify-center w-8 h-8 text-base border border-gray-300 rounded-md">l</div>
-                            <div className="flex items-center justify-center w-8 h-8 text-base border border-gray-300 rounded-md">xl</div>
+                            <ProductSizes key={selectedProduct.id + 2} data={selectedProduct.option_sizes} />
                         </div>
                     </div>
 
@@ -55,7 +56,7 @@ console.log(selectedProduct)
                         <div className="flex flex-col gap-6">
                             <p className="flex flex-row-reverse text-lg font-medium">총 상품 금액 {selectedProduct.price}원</p>
                             <div className="grid grid-cols-3 grid-rows-1 gap-4">
-                                <button className="flex items-center justify-center w-full h-12 text-base border border-gray-600 rounded-md">관심상품</button>
+                                <button className="flex items-center justify-center w-full h-12 text-base border border-gray-600 rounded-md" onClick={addfavoriteProducts}>관심상품</button>
                                 <button className="flex items-center justify-center w-full h-12 text-base border border-gray-600 rounded-md">장바구니</button>
                                 <button className="flex items-center justify-center w-full h-12 text-base text-white bg-gray-600 rounded-md">관심상품</button>
                             </div>
