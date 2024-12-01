@@ -134,28 +134,29 @@ const CategoryNav = () => {
         };
         fetchAllProduct();
     }, []);
-    const categoryName = Object.keys(pro_category)
 
-    const items = [
-        {
-            label: "의류",
-            key: "SubMenu1",
-            children: [
-                {
-                    label: (
-                        <span
-                            onClick={e => {
-                                navigateSub(e);
-                            }}
-                        >
-                            beauty
-                        </span>
-                    ),
-                    key: "SubMenu1:1",
-                }
-            ]
+    const items =
+        pro_category.map((el, index) =>
+            {
+            return {
+                label: el.category,
+                key: `SubMenu${index}`,
+                children: [
+                    {
+                        label: (
+                            <span
+                                onClick={e => {
+                                    navigateSub(e);
+                                }}
+                            >
+                                {el.type}
+                            </span>
+                        )
+                    }
+                ]
+            }
         }
-    ];
+        )
 
     // 스크롤
     const targetRef = useRef(null);

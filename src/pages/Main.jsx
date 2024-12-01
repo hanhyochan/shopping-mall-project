@@ -10,13 +10,11 @@ const Main = () => {
     useEffect(() => {
         const fetchAllProduct = async () => {
             const AllProductData = await getAllProduct();
-            setProduct(AllProductData);
+            setProduct(AllProductData)
+            // setProduct(Object.values(AllProductData).flatMap(item => Object.values(item).flatMap(el => el.item)));
         };
         fetchAllProduct();
     }, []);
-    // console.log(product)
-    const a = Object.values(product).flat().map(el => el.item.map(ell => ell.item).flat().map(elll => elll))
-    console.log(a)
 
     return (
         <>
