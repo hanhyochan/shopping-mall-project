@@ -195,7 +195,7 @@ const CategoryNav = () => {
                     <Menu
                         mode="horizontal"
                         items={items}
-                        className="!border-0 text-base"
+                        className="!border-0 text-base min-w-[400px]"
                     />
                 </div>
 
