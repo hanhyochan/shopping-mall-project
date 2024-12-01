@@ -227,5 +227,87 @@
             "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
         }
+    ],
+    "reviews": [
+        {
+            "id": "user1",
+            "pro_id": "product101",
+            "rating": 5,
+            "title": "정말 만족스러워요!",
+            "content": "이 상품은 정말 기대 이상이에요. 품질도 좋고, 사용하기도 편리합니다.",
+            "like": 23
+        },
+        {
+            "id": "user2",
+            "pro_id": "product102",
+            "rating": 4,
+            "title": "가격대비 괜찮아요",
+            "content": "상품의 품질이 가격에 비해 아주 좋습니다. 만족스러워요.",
+            "like": 15
+        },
+        {
+            "id": "user3",
+            "pro_id": "product103",
+            "rating": 3,
+            "title": "보통이에요",
+            "content": "기대보다 품질이 조금 떨어지네요. 그럭저럭 사용 가능합니다.",
+            "like": 8
+        },
+        {
+            "id": "user4",
+            "pro_id": "product104",
+            "rating": 5,
+            "title": "완벽한 상품",
+            "content": "이 가격에 이런 품질을 제공하는 상품은 드물어요. 정말 추천합니다.",
+            "like": 30
+        },
+        {
+            "id": "user5",
+            "pro_id": "product105",
+            "rating": 2,
+            "title": "실망이에요",
+            "content": "상품의 내구성이 부족해서 오래 사용할 수 있을 것 같지 않아요.",
+            "like": 2
+        },
+        {
+            "id": "user6",
+            "pro_id": "product106",
+            "rating": 4,
+            "title": "기능성 좋음",
+            "content": "디자인도 괜찮고, 기능성도 우수해서 잘 사용하고 있어요. 가성비 최고!",
+            "like": 18
+        },
+        {
+            "id": "user7",
+            "pro_id": "product107",
+            "rating": 1,
+            "title": "최악의 경험",
+            "content": "상품이 제대로 작동하지 않았어요. 절대 구매하지 마세요.",
+            "like": 0
+        },
+        {
+            "id": "user8",
+            "pro_id": "product108",
+            "rating": 5,
+            "title": "정말 좋습니다!",
+            "content": "이 제품은 진짜 추천할만해요. 너무 만족스럽고 자주 사용하고 있습니다.",
+            "like": 50
+        },
+        {
+            "id": "user9",
+            "pro_id": "product109",
+            "rating": 4,
+            "title": "괜찮은 상품",
+            "content": "가격에 비해 품질이 좋은 편입니다. 하지만 조금 더 개선할 점이 있네요.",
+            "like": 12
+        },
+        {
+            "id": "user10",
+            "pro_id": "product110",
+            "rating": 3,
+            "title": "평범한 상품",
+            "content": "상품이 괜찮지만, 별로 특별한 점은 없네요. 가격을 고려하면 적당합니다.",
+            "like": 5
+        }
     ]
 }
