@@ -37,14 +37,14 @@ const Product = ({data}) => {
             </button>
             <div className="w-full overflow-hidden h-60 aspect-w-1 aspect-h-1">
                 <img
-                    src={data.images[0]}
-                    alt={data.title}
+                    src={data.thumbnail}
+                    alt={data.name}
                     className="object-contain w-full h-full"
                 />
             </div>
-            <p>{data.title}</p>
+            <p>{data.name}</p>
             <p>{data.price}</p>
-            <p>리뷰: {data.reviews.length}개</p>
+            {/* <p>리뷰: {data.reviews.length}개</p> */}
         </div>
     );
 };

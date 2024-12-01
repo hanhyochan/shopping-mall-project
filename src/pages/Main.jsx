@@ -10,10 +10,12 @@ const Main = () => {
     useEffect(() => {
         const fetchAllProduct = async () => {
             const AllProductData = await getAllProduct();
-            setProduct(AllProductData);
+            setProduct(AllProductData)
+            // setProduct(Object.values(AllProductData).flatMap(item => Object.values(item).flatMap(el => el.item)));
         };
         fetchAllProduct();
     }, []);
+
     return (
         <>
             <MainSwiper />
