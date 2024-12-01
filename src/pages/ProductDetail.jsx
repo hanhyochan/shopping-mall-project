@@ -8,6 +8,9 @@ import ProductSizes from "../components/common/ProductSizes";
 const ProductDetail = () => {
     const { productId } = useParams();
     const [selectedProduct, setSelectedProduct] = useState({ images: [] });
+    const [favoriteProducts, setFavoriteProducts] = useState([])
+    // const [modalView, setModalView] = useState(false)
+    // setModalView(() => !modalView)
 
     useEffect(() => {
         const fetchSelectedProduct = async () => {
@@ -16,7 +19,11 @@ const ProductDetail = () => {
         };
         fetchSelectedProduct();
     }, []);
-    console.log(selectedProduct)
+
+    const addfavoriteProducts = () => {
+        setFavoriteProducts([...favoriteProducts, selectedProduct])
+    }
+
     return (
         <>
             <div className="my-20 grid h-180 grid-cols-2 grid-rows-1 gap-[5%]">
@@ -39,11 +46,11 @@ const ProductDetail = () => {
                         <hr></hr>
                         <div className="flex items-center gap-5">
                             <p className="text-lg ">Colors: </p>
-                            <ProductColors data={selectedProduct.option_colors}/>
+                            <ProductColors key={selectedProduct.id + 1} data={selectedProduct.option_colors}/>
                         </div>
                         <div className="flex items-center gap-5">
                             <p className="text-lg ">Sizes: </p>
-                            <ProductSizes data={selectedProduct.option_sizes} />
+                            <ProductSizes key={selectedProduct.id + 2} data={selectedProduct.option_sizes} />
                         </div>
                     </div>
 
@@ -51,7 +58,7 @@ const ProductDetail = () => {
                         <div className="flex flex-col gap-6">
                             <p className="flex flex-row-reverse text-lg font-medium">총 상품 금액 {selectedProduct.price}원</p>
                             <div className="grid grid-cols-3 grid-rows-1 gap-4">
-                                <button className="flex items-center justify-center w-full h-12 text-base border border-gray-600 rounded-md">관심상품</button>
+                                <button className="flex items-center justify-center w-full h-12 text-base border border-gray-600 rounded-md" onClick={addfavoriteProducts}>관심상품</button>
                                 <button className="flex items-center justify-center w-full h-12 text-base border border-gray-600 rounded-md">장바구니</button>
                                 <button className="flex items-center justify-center w-full h-12 text-base text-white bg-gray-600 rounded-md">관심상품</button>
                             </div>
