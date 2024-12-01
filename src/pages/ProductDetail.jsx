@@ -10,19 +10,20 @@ const ProductDetail = () => {
     useEffect(() => {
         const fetchSelectedProduct = async () => {
             const selectedProductData = await getSelectedProduct(productId);
+            console.log(selectedProductData)
             setSelectedProduct(selectedProductData);
         };
         fetchSelectedProduct();
     }, []);
-
+console.log(selectedProduct)
     return (
         <>
             <div className="my-20 grid h-180 grid-cols-2 grid-rows-1 gap-[5%]">
                 <div className="border border-gray-300 ">
                     <img
-                        src={selectedProduct.images.join(",")}
+                        src={selectedProduct.img}
                         alt=""
-                        className="object-contain w-full h-full"
+                        className="object-cover w-full h-full"
                     />
                 </div>
 
