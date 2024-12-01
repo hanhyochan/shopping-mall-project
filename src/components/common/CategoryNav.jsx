@@ -1,8 +1,8 @@
-import { SearchOutlined, MenuOutlined } from "@ant-design/icons";
-import { Menu, Input, Button } from "antd";
-import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { getAllProduct } from "../../api/productApi";
+import {SearchOutlined, MenuOutlined} from "@ant-design/icons";
+import {Menu, Input, Button} from "antd";
+import {useState, useEffect, useRef} from "react";
+import {useNavigate} from "react-router-dom";
+import {getAllProduct} from "../../api/productApi";
 
 const CategoryNav = () => {
     // 서브 카테고리 페이지 이동
@@ -125,7 +125,7 @@ const CategoryNav = () => {
     //     },
     // ];
 
-    const [pro_category, setProCategory] = useState([])
+    const [pro_category, setProCategory] = useState([]);
 
     useEffect(() => {
         const fetchAllProduct = async () => {
@@ -135,28 +135,33 @@ const CategoryNav = () => {
         fetchAllProduct();
     }, []);
 
-    const items =
-        pro_category.map((el, index) =>
-            {
-            return {
-                label: el.category,
-                key: `SubMenu${index}`,
-                children: [
-                    {
-                        label: (
-                            <span
-                                onClick={e => {
-                                    navigateSub(e);
-                                }}
-                            >
-                                {el.type}
-                            </span>
-                        )
-                    }
-                ]
-            }
-        }
-        )
+    // 1. 고유한 category만 추출
+    const uniqueCategories = [...new Set(pro_category.map(item => item.category))];
+    console.log(uniqueCategories, "카테고리");
+    // 2. 고유한 category에 해당하는 항목들만 추출하여 아이템 배열 구성
+    const items = uniqueCategories.map((category, index) => {
+        // category에 맞는 type들만 추출
+        const filteredItems = pro_category.filter(item => item.type === category);
+        console.log(filteredItems, "필터");
+        return {
+            label: category, // 고유한 category를 사용
+            key: `SubMenu${index}`,
+            children: filteredItems.map((el, childIndex) => ({
+                label: (
+                    <span
+                        onClick={e => {
+                            navigateSub(e);
+                        }}
+                    >
+                        {el.type} {/* 각 항목의 type을 표시 */}
+                    </span>
+                ),
+                key: `SubMenuItem${childIndex}`, // 자식 항목 고유 키
+            })),
+        };
+    });
+
+    console.log(items);
 
     // 스크롤
     const targetRef = useRef(null);
@@ -190,7 +195,7 @@ const CategoryNav = () => {
                     <Menu
                         mode="horizontal"
                         items={items}
-                        className="!border-0 min-w-[330px] text-base"
+                        className="!border-0 text-base"
                     />
                 </div>
 

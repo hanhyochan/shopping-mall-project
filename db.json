@@ -1,213 +1,230 @@
 {
-    "products" : [
+    "products": [
         {
             "id": 1,
             "category": "clothes",
             "type": "tshirt",
             "name": "나그랑 슬릿 기모맨투맨",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202212/4856807a1076a4f9c4e60498885032b4.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202212/4856807a1076a4f9c4e60498885032b4.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202212/50bfbfae2e767fc215a2ff5b955a6cff.webp",
             "price": 23300,
-            "option_colors": [ "white", "bagie", "pink", "gray", "black"],
-            "option_sizes": [ "free"],
+            "option_colors": ["white", "bagie", "pink", "gray", "black"],
+            "option_sizes": ["free"],
             "description_img": "https://www.purplia.com/web/2022/z/ujh1205-4-1-top-01.jpg"
-        }, {
+        },
+        {
             "id": 2,
             "category": "clothes",
             "type": "tshirt",
             "name": "듀이 모달 반폴라티",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202311/d87f4c1d47a68bfec82d1f873e675b0e.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202311/d87f4c1d47a68bfec82d1f873e675b0e.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/1661e2a03b20e868c992aa1721c29829.webp",
             "price": 16200,
-            "option_colors": [ "ivory", "cream", "charcoal", "mocha", "black"],
+            "option_colors": ["ivory", "cream", "charcoal", "mocha", "black"],
             "option_sizes": ["xs", "s", "m", "l", "xl"],
             "description_img": "https://www.purplia.com/web/2023/z/en1103-tee_01.jpg"
-        }, {
+        },
+        {
             "id": 3,
             "category": "clothes",
             "type": "tshirt",
             "name": "베르 폴라 긴팔 티셔츠",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202410/eafe521f7fef3262b1eda5dfee9587f4.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202410/eafe521f7fef3262b1eda5dfee9587f4.webp",
             "price": 17900,
-            "option_colors": [ "ivory", "skyblue", "purple", "navy", "black"],
-            "option_sizes": [ "free"],
+            "option_colors": ["ivory", "skyblue", "purple", "navy", "black"],
+            "option_sizes": ["free"],
             "description_img": "https://www.purplia.com/web/2023/z/en1103-tee_01.jpg"
-        }, {
+        },
+        {
             "id": 4,
             "category": "clothes",
             "type": "tshirt",
             "name": "레븐 밍크 반팔 티셔츠",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/489846412ee485ad4066c8fb19d89e00.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/489846412ee485ad4066c8fb19d89e00.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202411/c3ccf6aecf34c9a793d9de1e56c97e0c.webp",
             "price": 14300,
-            "option_colors": [ "ivory", "brown", "gray", "black"],
-            "option_sizes": [ "xs", "s", "m", "l", "xl"],
+            "option_colors": ["ivory", "brown", "gray", "black"],
+            "option_sizes": ["xs", "s", "m", "l", "xl"],
             "description_img": "https://www.purplia.com/web/2024/e/1106-3in_01.jpg"
-        },{
+        },
+        {
             "id": 5,
             "category": "clothes",
             "type": "pants",
             "name": "발열기모 보이핏 데님팬츠",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202311/761c0342282866fde8eb0ccfefc4399a.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202311/761c0342282866fde8eb0ccfefc4399a.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 43200,
-            "option_colors": [ "jeans"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["jeans"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2022/z/ujh1205-4-1-top-01.jpg"
-        }, 
+        },
         {
             "id": 6,
             "category": "clothes",
             "type": "pants",
             "name": "세상따뜻한 일자 기모본딩슬랙스",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/20191227/f3e3e83e735ac49a7e8847f1c3b75fea.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/20191227/f3e3e83e735ac49a7e8847f1c3b75fea.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/20191227/c65ea83460b68d266f4d4a27d6c87ad8.webp",
             "price": 23300,
-            "option_colors": [ "pink", "sora", "brown", "wine", "black"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["pink", "sora", "brown", "wine", "black"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://cafe24img.poxo.com/purple3030/web/2019FW/3_PANTS/e1223-3_01.jpg"
-        },{
+        },
+        {
             "id": 7,
             "category": "clothes",
             "type": "outer",
             "name": "라헨느 밍크퍼 베스트",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/3ce76b1591044e8714f04724448c2d67.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/3ce76b1591044e8714f04724448c2d67.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202411/3fef03d6e76c22ebc4668d6f004a1dc8.webp",
             "price": 48600,
-            "option_colors": [ "ivory", "brown", "black"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["ivory", "brown", "black"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/BA/made950.jpg"
-        },{
+        },
+        {
             "id": 8,
             "category": "clothes",
             "type": "knitwear",
             "name": "닥스훈트 프린팅 울니트",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/d99767c2a804ae1165580fc028532190.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/d99767c2a804ae1165580fc028532190.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202411/c7040a61411090f89201cf30bfc0b442.webp",
             "price": 23300,
-            "option_colors": [ "ivory", "navy", "charcole"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["ivory", "navy", "charcole"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/yn1126-10kn-info.jpg"
-        },{
+        },
+        {
             "id": 9,
             "category": "clothes",
             "type": "onepiece",
             "name": "아이비 니트 후드 원피스",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
-        },{
+        },
+        {
             "id": 10,
             "category": "sportswear",
             "type": "sweatshirt",
             "name": "스포츠상의",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
-        },{
+        },
+        {
             "id": 11,
             "category": "sportswear",
             "type": "sweatpants",
             "name": "스포츠하의",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
-        },{
+        },
+        {
             "id": 12,
             "category": "sportswear",
             "type": "menswear",
             "name": "스포츠남성복",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
-        },{
+        },
+        {
             "id": 13,
             "category": "sportswear",
             "type": "womenswear",
             "name": "스포츠여성복",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
-        },{
+        },
+        {
             "id": 14,
             "category": "shoes",
             "type": "sneakers",
             "name": "운동화",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
-        },{
+        },
+        {
             "id": 15,
             "category": "shoes",
             "type": "sandals_slippers",
             "name": "샌들_슬리퍼",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
-        },{
+        },
+        {
             "id": 16,
             "category": "shoes",
             "type": "boots",
             "name": "부츠",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
-        },{
+        },
+        {
             "id": 17,
             "category": "accessories",
             "type": "cap_beanie",
             "name": "캡_비니",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
-        },{
+        },
+        {
             "id": 18,
             "category": "accessories",
             "type": "backpack",
             "name": "백팩",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
-        },{
+        },
+        {
             "id": 19,
             "category": "accessories",
             "type": "jewelry",
             "name": "쥬얼리",
-            "thumbnail" : "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+            "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
             "img": "https://cafe24img.poxo.com/purple3030/web/product/small/202311/4d47ea6564d900ebf98f378a99ad2d8a.webp",
             "price": 44900,
-            "option_colors": [ "basie", "gray", "brown"],
-            "option_sizes": [ "S", "M", "L", "XL"],
+            "option_colors": ["basie", "gray", "brown"],
+            "option_sizes": ["S", "M", "L", "XL"],
             "description_img": "https://www.purplia.com/web/2024/z/en1108-3ops_01.jpg"
         }
     ]
