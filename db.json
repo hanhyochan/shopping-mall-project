@@ -1,0 +1,164 @@
+{
+    "reviews": [
+        {
+            "id": "user1",
+            "pro_id": "product1",
+            "rating": 5,
+            "title": "최고의 상품",
+            "content": "이 상품은 정말 좋아요! 사용하기 편하고 성능도 뛰어나요.",
+            "like": 12
+        },
+        {
+            "id": "user2",
+            "pro_id": "product2",
+            "rating": 4,
+            "title": "좋은 상품이에요",
+            "content": "가격 대비 성능이 좋고 만족스럽습니다. 하지만 조금 무겁네요.",
+            "like": 8
+        },
+        {
+            "id": "user3",
+            "pro_id": "product3",
+            "rating": 3,
+            "title": "보통이에요",
+            "content": "기대보다 조금 실망스러웠어요. 성능은 괜찮지만 디자인이 별로에요.",
+            "like": 5
+        },
+        {
+            "id": "user4",
+            "pro_id": "product4",
+            "rating": 5,
+            "title": "추천합니다!",
+            "content": "상품이 정말 잘 만들어졌어요. 품질 좋고 가격 대비 훌륭해요.",
+            "like": 20
+        },
+        {
+            "id": "user5",
+            "pro_id": "product5",
+            "rating": 2,
+            "title": "실망",
+            "content": "기대가 컸는데 기능이 제대로 작동하지 않네요.",
+            "like": 3
+        },
+        {
+            "id": "user6",
+            "pro_id": "product6",
+            "rating": 4,
+            "title": "편리한 사용",
+            "content": "디자인은 훌륭하고 사용이 편리합니다. 다만 가격이 조금 비쌉니다.",
+            "like": 9
+        },
+        {
+            "id": "user7",
+            "pro_id": "product7",
+            "rating": 5,
+            "title": "완벽한 제품",
+            "content": "정말 완벽한 제품이에요. 사용감이 최고입니다.",
+            "like": 15
+        },
+        {
+            "id": "user8",
+            "pro_id": "product8",
+            "rating": 1,
+            "title": "별로",
+            "content": "구매 후 바로 고장이 나서 매우 실망했습니다.",
+            "like": 2
+        },
+        {
+            "id": "user9",
+            "pro_id": "product9",
+            "rating": 4,
+            "title": "좋은 성능",
+            "content": "성능은 괜찮지만 조금 더 가벼웠으면 좋겠어요.",
+            "like": 6
+        },
+        {
+            "id": "user10",
+            "pro_id": "product10",
+            "rating": 5,
+            "title": "정말 좋아요",
+            "content": "상품이 매우 만족스럽고 기대 이상입니다. 잘 구매했어요.",
+            "like": 18
+        },
+        {
+            "id": "user11",
+            "pro_id": "product11",
+            "rating": 3,
+            "title": "평범한 상품",
+            "content": "상품이 그저 그런 느낌입니다. 특별히 뛰어나지 않아요.",
+            "like": 4
+        },
+        {
+            "id": "user12",
+            "pro_id": "product12",
+            "rating": 5,
+            "title": "추천할 만한 상품",
+            "content": "가격 대비 정말 훌륭한 품질이에요. 만족합니다.",
+            "like": 25
+        },
+        {
+            "id": "user13",
+            "pro_id": "product13",
+            "rating": 2,
+            "title": "별로에요",
+            "content": "기능이 너무 부족하고, 디자인도 별로입니다.",
+            "like": 1
+        },
+        {
+            "id": "user14",
+            "pro_id": "product14",
+            "rating": 4,
+            "title": "좋아요",
+            "content": "성능이 좋고 편리하게 사용할 수 있어요. 하지만 가격이 조금 비쌉니다.",
+            "like": 7
+        },
+        {
+            "id": "user15",
+            "pro_id": "product15",
+            "rating": 3,
+            "title": "보통이에요",
+            "content": "가격은 적당하지만 성능이 기대보다 조금 낮아요.",
+            "like": 3
+        },
+        {
+            "id": "user16",
+            "pro_id": "product16",
+            "rating": 5,
+            "title": "만족스러운 구매",
+            "content": "상품의 품질이 정말 뛰어나고 매우 만족스럽습니다.",
+            "like": 22
+        },
+        {
+            "id": "user17",
+            "pro_id": "product17",
+            "rating": 4,
+            "title": "괜찮은 제품",
+            "content": "가격 대비 성능이 괜찮은 제품입니다. 조금 더 가벼웠으면 좋겠어요.",
+            "like": 10
+        },
+        {
+            "id": "user18",
+            "pro_id": "product18",
+            "rating": 1,
+            "title": "최악의 상품",
+            "content": "정말 최악의 상품이에요. 전혀 추천하지 않습니다.",
+            "like": 0
+        },
+        {
+            "id": "user19",
+            "pro_id": "product19",
+            "rating": 4,
+            "title": "괜찮은 사용감",
+            "content": "사용하기 괜찮은 제품입니다. 가격도 적당하고 잘 작동해요.",
+            "like": 13
+        },
+        {
+            "id": "user20",
+            "pro_id": "product20",
+            "rating": 5,
+            "title": "완벽한 제품",
+            "content": "상품에 전혀 불만이 없어요. 가격이 조금 비싸지만 품질이 뛰어나요.",
+            "like": 30
+        }
+    ]
+}
