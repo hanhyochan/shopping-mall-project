@@ -25,8 +25,8 @@ const CategoryNav = () => {
     const uniqueCategories = [...new Set(pro_category.map(item => item.category))];
     
     const items = uniqueCategories.map((category, index) => {
-        const filteredItems = pro_category.filter(item => item.type === );
-        console.log(filteredItems)
+        const filteredItems = pro_category.filter(item => item.type === category);
+
         return {
             label: category,
             key: `SubMenu${index}`,
@@ -64,7 +64,7 @@ const CategoryNav = () => {
             className="sticky top-0 z-50 w-full py-3 mx-auto bg-white"
             ref={targetRef}
         >
-            {/* <div className="flex items-center flex-col sm:flex-row justify-between gap-4 relative md:w-[80vw] xl: w-[90vw] mx-auto">
+            <div className="flex items-center flex-col sm:flex-row justify-between gap-4 relative md:w-[80vw] xl: w-[90vw] mx-auto">
                 <div className="hidden md:flex">
                     <Button
                         className="border-0"
@@ -91,7 +91,7 @@ const CategoryNav = () => {
                         icon={<SearchOutlined />}
                     />
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 };

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getSelectedProduct } from "../api/productApi";
 import ProductDetailsTab from "../components/ProductDetailsTab";
+import ProductColors from "../components/common/ProductColors";
+import ProductSizes from "../components/common/ProductSizes";
 
 const ProductDetail = () => {
     const { productId } = useParams();
@@ -14,7 +16,7 @@ const ProductDetail = () => {
         };
         fetchSelectedProduct();
     }, []);
-    
+    console.log(selectedProduct)
     return (
         <>
             <div className="my-20 grid h-180 grid-cols-2 grid-rows-1 gap-[5%]">
@@ -28,7 +30,7 @@ const ProductDetail = () => {
 
                 <div className="grid grid-cols-1 grid-rows-2">
                     <div className="flex flex-col gap-6">
-                        <h1 className="text-2xl">{selectedProduct.title}</h1>
+                        <h1 className="text-2xl">{selectedProduct.name}</h1>
                         <span className="text-2xl font-semibold">{selectedProduct.price}원</span>
                         <div className="flex items-center gap-5">
                             <p className="text-lg font-medium">배송비</p>
@@ -37,16 +39,11 @@ const ProductDetail = () => {
                         <hr></hr>
                         <div className="flex items-center gap-5">
                             <p className="text-lg ">Colors: </p>
-                            <div className="w-7 h-7 rounded-full bg-[#86c8a7]"></div>
-                            <div className="w-7 h-7 rounded-full bg-[#c8b686]"></div>
+                            <ProductColors data={selectedProduct.option_colors}/>
                         </div>
                         <div className="flex items-center gap-5">
                             <p className="text-lg ">Sizes: </p>
-                            <div className="flex items-center justify-center w-8 h-8 text-base border border-gray-300 rounded-md">xs</div>
-                            <div className="flex items-center justify-center w-8 h-8 text-base border border-gray-300 rounded-md">s</div>
-                            <div className="flex items-center justify-center w-8 h-8 text-base border border-gray-300 rounded-md">m</div>
-                            <div className="flex items-center justify-center w-8 h-8 text-base border border-gray-300 rounded-md">l</div>
-                            <div className="flex items-center justify-center w-8 h-8 text-base border border-gray-300 rounded-md">xl</div>
+                            <ProductSizes data={selectedProduct.option_sizes} />
                         </div>
                     </div>
 
