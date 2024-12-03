@@ -41,12 +41,17 @@ const ProductReview = () => {
                     dataSource={review}
                     renderItem={review => (
                         <List.Item>
-                            <Card title={review.title}>
+                            <Card>
+                                <div className="flex">
+                                    <Rate
+                                        disabled
+                                        value={review.rating}
+                                    />
+                                    <p className="pl-5">{review.title}</p>
+                                </div>
+
                                 <p>{review.content}</p>
-                                <Rate
-                                    disabled
-                                    value={review.rating}
-                                />
+
                                 <p>좋아요: {review.like}</p>
                             </Card>
                         </List.Item>

@@ -6,14 +6,12 @@ import { getAllProduct } from "../../api/productApi";
 
 const CategoryNav = () => {
     // 서브 카테고리 페이지 이동
-    // const navigate = useNavigate();
-    // const navigateSub = e => {
-    //     const Subcategory = e.target.textContent;
-    //     navigate(`category?subcategory=${Subcategory}`);
-    // };
+    const navigate = useNavigate();
+    const navigateSub = subCategory => {
+        navigate(`category?subcategory=${subCategory}`);
+    };
 
     const [pro_category, setProCategory] = useState([]);
-
     useEffect(() => {
         const fetchAllProduct = async () => {
             const AllProductData = await getAllProduct();
@@ -23,24 +21,20 @@ const CategoryNav = () => {
     }, []);
 
     const uniqueCategories = [...new Set(pro_category.map(item => item.category))];
-    
-    const items = uniqueCategories.map((category, index) => {
-        const filteredItems = pro_category.filter(item => item.type === category);
 
+    // 2. 고유한 category에 해당하는 항목들만 추출하여 아이템 배열 구성
+    const items = uniqueCategories.map((category, index) => {
+        // category 추출
+        const filteredItems = pro_category.filter(item => item.category === category);
+        // type만 추출
+        const uniqueCategoryTypes = [...new Set(filteredItems.map(item => item.type))];
         return {
             label: category,
             key: `SubMenu${index}`,
-            children: filteredItems.map((el, childIndex) => ({
-                label: (
-                    <span
-                        onClick={e => {
-                            navigateSub(e);
-                        }}
-                    >
-                        {el.type} {/* 각 항목의 type을 표시 */}
-                    </span>
-                ),
-                key: `SubMenuItem${childIndex}`, // 자식 항목 고유 키
+            children: uniqueCategoryTypes.map((type, childIndex) => ({
+                label: <span>{type}</span>,
+                key: `${category}-${type}-${childIndex}`,
+                onClick: () => navigateSub(type),
             })),
         };
     });
@@ -93,7 +87,7 @@ const CategoryNav = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
 export default CategoryNav;

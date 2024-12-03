@@ -4,7 +4,7 @@ import ProductDetail from "./pages/ProductDetail";
 import CategoryDetail from "./pages/CategoryDetail";
 import {Routes, Route} from "react-router-dom";
 import Layout from "./components/common/Layout";
-import MyPage from "./pages/MyPage";
+import MyPage from "./pages/myPage/MyPage";
 
 const App = () => {
     return (

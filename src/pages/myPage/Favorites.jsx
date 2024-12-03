@@ -1,11 +1,11 @@
 import React from 'react';
 
-const MyPage = () => {
+const Favorites = () => {
     return (
         <div>
-            마이페이지
+            관심상품
         </div>
     );
 };
 
-export default MyPage;
+export default Favorites;
