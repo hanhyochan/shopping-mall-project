@@ -1,12 +1,26 @@
 import {Button as AntButton} from "antd";
 
-const Button = ({children, antDesign = false, ...props}) => {
-    if (antDesign) {
-        return <AntButton {...props}>{children}</AntButton>;
+const Button = ({children, antDesign = true, onClick, className, ...props}) => {
+    if (!antDesign) {
+        return (
+            <button
+                onClick={onClick}
+                {...props}
+            >
+                {children}
+            </button>
+        );
     }
 
-    // 기본 HTML 버튼
-    return <button {...props}>{children}</button>;
+    return (
+        <AntButton
+            onClick={onClick}
+            className={className}
+            {...props}
+        >
+            {children}
+        </AntButton>
+    );
 };
 
 export default Button;

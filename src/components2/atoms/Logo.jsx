@@ -1,9 +1,7 @@
-import {useNavigate} from "react-router-dom";
-const Logo = () => {
-    const navigate = useNavigate();
+const Logo = ({onClick}) => {
     return (
         <span
-            onClick={() => navigate("/")}
+            onClick={onClick}
             className="text-2xl cursor-pointer"
         >
             MyApp

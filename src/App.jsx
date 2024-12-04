@@ -1,16 +1,18 @@
 import React from "react";
 import Main from "./pages/Main";
-import Main2 from "./\bpages2/Main2";
 import ProductDetail from "./pages/ProductDetail";
 import CategoryDetail from "./pages/CategoryDetail";
 import {Routes, Route} from "react-router-dom";
 import Layout from "./components/common/Layout";
 import MyPage from "./pages/myPage/MyPage";
+// 현정 작업중
+import Main2 from "./components2/pages/Main2";
+import Layout2 from "./components2/templates/Layout2";
 
 const App = () => {
     return (
         <>
-            <Layout>
+            <Layout2>
                 <Routes>
                     {/* <Route
                         path="/"
@@ -34,7 +36,7 @@ const App = () => {
                         element={<MyPage />}
                     />
                 </Routes>
-            </Layout>
+            </Layout2>
         </>
     );
 };
