@@ -1,5 +1,6 @@
 import React from "react";
 import Main from "./pages/Main";
+import Main2 from "./\bpages2/Main2";
 import ProductDetail from "./pages/ProductDetail";
 import CategoryDetail from "./pages/CategoryDetail";
 import {Routes, Route} from "react-router-dom";
@@ -11,9 +12,14 @@ const App = () => {
         <>
             <Layout>
                 <Routes>
-                    <Route
+                    {/* <Route
                         path="/"
                         element={<Main />}
+                    /> */}
+                    {/* 현졍 작업중 */}
+                    <Route
+                        path="/"
+                        element={<Main2 />}
                     />
                     <Route
                         path="/details/:productId"
