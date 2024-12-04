@@ -58,7 +58,7 @@ const CategoryDetail = () => {
                             type="warning"
                             onClick={sortByHighPrice}
                         >
-                            높은가격
+                            높은가격 
                         </Button>
                     </div>
                 </div>
