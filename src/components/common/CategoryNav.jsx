@@ -1,8 +1,8 @@
-import { SearchOutlined, MenuOutlined } from "@ant-design/icons";
-import { Menu, Input, Button } from "antd";
-import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { getAllProduct } from "../../api/productApi";
+import {SearchOutlined, MenuOutlined} from "@ant-design/icons";
+import {Menu, Input, Button} from "antd";
+import {useState, useEffect, useRef} from "react";
+import {useNavigate} from "react-router-dom";
+import {getAllProduct} from "../../api/productApi";
 
 const CategoryNav = () => {
     // 서브 카테고리 페이지 이동
@@ -63,7 +63,7 @@ const CategoryNav = () => {
                     <Button
                         className="border-0"
                         icon={<MenuOutlined />}
-                    /> 
+                    />
                     <Button className="text-base underline border-0">Best 10</Button>
                 </div>
 
@@ -87,11 +87,7 @@ const CategoryNav = () => {
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
     );
-=======
-    )
->>>>>>> f5a625e19aa7d315cf4b1539a49df66990507ce1
 };
 
 export default CategoryNav;
