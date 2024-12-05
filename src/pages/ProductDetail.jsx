@@ -15,8 +15,9 @@ const ProductDetail = () => {
             const selectedProductData = await getSelectedProduct(productId);
             setSelectedProduct(selectedProductData);
         };
-        fetchSelectedProduct();
-    }, []);
+        fetchSelectedProduct()
+    }, [])
+
 
     const addfavoriteProducts = () => {
         setFavoriteProducts([...favoriteProducts, selectedProduct])
