@@ -63,7 +63,10 @@ const CategoryNav = () => {
                         className="border-0"
                         icon={<MenuOutlined />}
                     />
-                    <Button className="text-base underline border-0">Best 10</Button>
+                    <Button
+                        className="text-base underline border-0"
+                        text="Best 10"
+                    />
                 </div>
 
                 <div className="static flex justify-center flex-1 md:absolute md:left-1/2 md:transform md:-translate-x-1/2">

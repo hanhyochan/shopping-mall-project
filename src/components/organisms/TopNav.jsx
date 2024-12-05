@@ -18,33 +18,28 @@ const TopNav = () => {
                     <Button
                         antDesign={false}
                         onClick={() => handleButtonClick("/login")}
-                    >
-                        로그인
-                    </Button>
+                        text="로그인"
+                    />
                     <Button
                         antDesign={false}
                         onClick={() => handleButtonClick("/signup")}
-                    >
-                        회원가입
-                    </Button>
+                        text="회원가입"
+                    />
                     <Button
                         antDesign={false}
                         onClick={() => handleButtonClick("/cart")}
-                    >
-                        장바구니
-                    </Button>
+                        text="장바구니"
+                    />
                     <Button
                         antDesign={false}
                         onClick={() => handleButtonClick("/Mypage")}
-                    >
-                        마이페이지
-                    </Button>
+                        text="마이페이지"
+                    />
                     <Button
                         antDesign={false}
                         onClick={() => handleButtonClick("/board")}
-                    >
-                        게시판
-                    </Button>
+                        text="게시판"
+                    />
                 </div>
             </div>
         </>

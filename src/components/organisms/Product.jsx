@@ -31,9 +31,8 @@ const Product = ({data}) => {
                 onClick={e => {
                     handleClick(e);
                 }}
-            >
-                {like ? <HeartFilled /> : <HeartOutlined />}
-            </Button>
+                icon={like ? <HeartFilled /> : <HeartOutlined />}
+            />
 
             <div className="w-full overflow-hidden">
                 <img
