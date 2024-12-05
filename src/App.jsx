@@ -1,9 +1,10 @@
-import ProductDetail from "./pages/ProductDetail";
+// import ProductDetail from "./pages/ProductDetail";
 import {Routes, Route} from "react-router-dom";
 import Layout from "./components/templates/Layout";
 import MyPage from "./pages/myPage/MyPage";
 import Main from "./components/pages/Main";
 import CategoryDetail from "./components/pages/CategoryDetail";
+import ProductDetail from "./components/pages/ProductDetail";
 
 const App = () => {
     return (
