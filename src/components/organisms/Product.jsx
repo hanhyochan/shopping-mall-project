@@ -12,16 +12,22 @@ const Product = ({data}) => {
     };
 
     const handleClick = e => {
+        e.stopPropagation();
         setLike(!like);
     };
 
     return (
         <div
             onClick={() => handleClickProduct()}
-            className="relative w-1/4 p-4"
+            className="relative"
         >
             <Button
-                className="absolute right-0 top-0 text-[25px] text-red-500"
+                className="absolute right-1 top-1 text-[25px] text-red-500 border-0 bg-transparent p-0"
+                style={{
+                    background: "transparent",
+                    border: "none",
+                    color: "#ef4444",
+                }}
                 onClick={e => {
                     handleClick(e);
                 }}
@@ -29,16 +35,17 @@ const Product = ({data}) => {
                 {like ? <HeartFilled /> : <HeartOutlined />}
             </Button>
 
-            <div className="w-full overflow-hidden h-60 aspect-w-1 aspect-h-1">
+            <div className="w-full overflow-hidden">
                 <img
                     src={data.thumbnail}
                     alt={data.name}
                     className="object-contain w-full h-full"
                 />
             </div>
-            <p>{data.name}</p>
-            <p>{data.price}</p>
-            {/* <p>리뷰: {data.reviews.length}개</p> */}
+            <div className="pt-2">
+                <p className="text-lg">{data.name}</p>
+                <p className="text-lg">{data.price}</p>
+            </div>
         </div>
     );
 };

@@ -1,27 +1,18 @@
-import React from "react";
-import Main from "./pages/Main";
 import ProductDetail from "./pages/ProductDetail";
 import CategoryDetail from "./pages/CategoryDetail";
 import {Routes, Route} from "react-router-dom";
-import Layout from "./components/common/Layout";
+import Layout from "./components/templates/Layout";
 import MyPage from "./pages/myPage/MyPage";
-// 현정 작업중
-import Main2 from "./components2/pages/Main2";
-import Layout2 from "./components2/templates/Layout2";
+import Main from "./components/pages/Main";
 
 const App = () => {
     return (
         <>
-            <Layout2>
+            <Layout>
                 <Routes>
-                    {/* <Route
-                        path="/"
-                        element={<Main />}
-                    /> */}
-                    {/* 현졍 작업중 */}
                     <Route
                         path="/"
-                        element={<Main2 />}
+                        element={<Main />}
                     />
                     <Route
                         path="/details/:productId"
@@ -36,7 +27,7 @@ const App = () => {
                         element={<MyPage />}
                     />
                 </Routes>
-            </Layout2>
+            </Layout>
         </>
     );
 };
