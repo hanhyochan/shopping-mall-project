@@ -1,13 +1,13 @@
 import {Button as AntButton} from "antd";
 
-const Button = ({children, antDesign = true, onClick, className, ...props}) => {
+const Button = ({text, antDesign = true, onClick, className, color, variant, type, ...props}) => {
     if (!antDesign) {
         return (
             <button
                 onClick={onClick}
                 {...props}
             >
-                {children}
+                {text}
             </button>
         );
     }
@@ -16,9 +16,12 @@ const Button = ({children, antDesign = true, onClick, className, ...props}) => {
         <AntButton
             onClick={onClick}
             className={className}
+            color={color}
+            variant={variant}
+            type={type}
             {...props}
         >
-            {children}
+            {text}
         </AntButton>
     );
 };

@@ -1,9 +1,9 @@
 import ProductDetail from "./pages/ProductDetail";
-import CategoryDetail from "./pages/CategoryDetail";
 import {Routes, Route} from "react-router-dom";
 import Layout from "./components/templates/Layout";
 import MyPage from "./pages/myPage/MyPage";
 import Main from "./components/pages/Main";
+import CategoryDetail from "./components/pages/CategoryDetail";
 
 const App = () => {
     return (

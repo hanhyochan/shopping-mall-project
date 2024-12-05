@@ -11,7 +11,7 @@ const ProductList = ({title, data, className}) => {
                 className={className}
             />
             <Row
-                gutter={[16, 20]} // 컬럼 간격 설정
+                gutter={[16, 20]}
                 className="w-full"
             >
                 {data?.map(item => (
