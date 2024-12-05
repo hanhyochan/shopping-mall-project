@@ -4,7 +4,7 @@ import ProductList from "../organisms/ProductList";
 import {getAllProduct} from "../../api/productApi";
 import {useState} from "react";
 
-const Main2 = () => {
+const Main = () => {
     const [product, setProduct] = useState([]);
 
     useEffect(() => {
@@ -21,17 +21,17 @@ const Main2 = () => {
             <MainSwiper />
             <ProductList
                 title="Now Hot Click"
-                className="pb5"
+                className="pb-5"
                 data={product}
             />
             <hr className="my-12" />
             <ProductList
                 title="New Arrival"
-                className="pb5"
+                className="pb-5"
                 data={product}
             />
         </>
     );
 };
 
-export default Main2;
+export default Main;
