@@ -1,6 +1,6 @@
 import Button from "../atoms/Button";
 
-const ProductColors = ({data = []}) => {
+const ProductColors = ({data = [], onColorChange}) => {
     const colorMap = {
         white: "bg-white border border-gray-300",
         ivory: "border border-gray-300 bg-[#fffff0]",
@@ -28,6 +28,8 @@ const ProductColors = ({data = []}) => {
                         className={`${colorClass} rounded-full w-7 h-7`}
                         antDesign={false}
                         aria-label={`Color: ${el}`}
+                        data-color={el}
+                        onClick={() => onColorChange(el)}
                     />
                 ) : null;
             })}
