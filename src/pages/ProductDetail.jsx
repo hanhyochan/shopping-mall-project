@@ -10,7 +10,6 @@ import { selectSelectedProduct, selectProductStatus } from "../RTK/selector";
 
 const ProductDetail = () => {
     const { productId } = useParams();
-    // const [favoriteProducts, setFavoriteProducts] = useState([])
     const dispatch = useDispatch();
     const selectedProduct = useSelector(selectSelectedProduct);
     const status = useSelector(selectProductStatus);
@@ -27,10 +26,6 @@ const ProductDetail = () => {
         return <p>상품 불러오기를 실패했습니다.</p>;
     }
 
-    //     const addfavoriteProducts = () => {
-    //         setFavoriteProducts([...favoriteProducts, selectedProduct])
-    //     }
-    // console.log(favoriteProducts)
     return (
         <>
             <div className="my-20 grid h-180 grid-cols-2 grid-rows-1 gap-[5%]">
