@@ -1,25 +1,36 @@
-import {useEffect} from "react";
+import { useEffect } from "react";
 import Product from "../components/Product";
-import {useState} from "react";
-import {getAllProduct} from "../api/productApi";
-import {useSearchParams} from "react-router-dom";
-import {Button} from "antd";
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { Button } from "antd";
+import { fetchAllProducts } from "../RTK/slice";
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllProducts, selectProductStatus } from "../RTK/selector";
+
 const CategoryDetail = () => {
     // url 파라미터값 갖고오기
     const [searchParams] = useSearchParams();
     const subCategory = searchParams.get("subcategory");
     const [categoryProduct, setCategoryProduct] = useState([]);
-    console.log(categoryProduct);
+    const dispatch = useDispatch();
+    const products = useSelector(selectAllProducts);
+    const status = useSelector(selectProductStatus);
+
     // 데이터 페치
     useEffect(() => {
-        const fetchCategoryProduct = async () => {
-            const allProduct = await getAllProduct();
-            const categoryProducts = allProduct.filter(item => item.type === subCategory);
-            console.log(subCategory);
-            setCategoryProduct(categoryProducts);
-        };
-        fetchCategoryProduct();
-    }, [subCategory]);
+        dispatch(fetchAllProducts());
+        const categoryProducts = products.filter(item => item.type === subCategory);
+        setCategoryProduct(categoryProducts);
+    }, []);
+
+    if (status === 'loading') {
+        return <p>상품 불러오는 중...</p>;
+    }
+
+    if (status === 'failed') {
+        return <p>상품 불러오기를 실패했습니다.</p>;
+    }
+
     // 낮은가격 필터링
     const sortByLowPrice = () => {
         setCategoryProduct(prev => [...prev].sort((a, b) => a.price - b.price));
@@ -58,7 +69,7 @@ const CategoryDetail = () => {
                             type="warning"
                             onClick={sortByHighPrice}
                         >
-                            높은가격 
+                            높은가격
                         </Button>
                     </div>
                 </div>
