@@ -31,9 +31,8 @@ const Product = ({data}) => {
                 onClick={e => {
                     handleClick(e);
                 }}
-            >
-                {like ? <HeartFilled /> : <HeartOutlined />}
-            </Button>
+                icon={like ? <HeartFilled /> : <HeartOutlined />}
+            />
 
             <div className="w-full overflow-hidden">
                 <img
@@ -44,7 +43,7 @@ const Product = ({data}) => {
             </div>
             <div className="pt-2">
                 <p className="text-lg">{data.name}</p>
-                <p className="text-lg">{data.price}</p>
+                <p className="text-base">{data.price.toLocaleString("ko-KR")}원</p>
             </div>
         </div>
     );

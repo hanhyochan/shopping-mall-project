@@ -18,3 +18,13 @@ export const getSelectedProduct = async productId => {
         console.error("상품 상세 정보 패치에 실패했습니다.", error);
     }
 };
+
+//리뷰 갖고오기
+export const getAllReiview = async () => {
+    try {
+        const response = await axios.get(`http://localhost:3000/reviews`);
+        return response.data;
+    } catch (error) {
+        console.error("상품 리뷰 패치에 실패했습니다.", error);
+    }
+};
