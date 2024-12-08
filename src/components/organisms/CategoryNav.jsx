@@ -1,32 +1,46 @@
-import {MenuOutlined} from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
 import Button from "../atoms/Button";
 import SearchInput from "../molecules/SearchInput";
-import {Menu} from "antd";
-import {useState, useEffect, useRef} from "react";
-import {useNavigate} from "react-router-dom";
-import {getAllProduct} from "../../api/productApi";
+import { Menu } from "antd";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchAllProducts } from "../../RTK/slice";
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllProducts } from "../../RTK/selector";
 
 const CategoryNav = () => {
     // 서브 카테고리 페이지 이동
+    const [proCategory, setProCategory] = useState([]);
     const navigate = useNavigate();
     const navigateSub = subCategory => {
         navigate(`category?subcategory=${subCategory}`);
     };
+    const dispatch = useDispatch();
+    const products = useSelector(selectAllProducts);
 
-    const [pro_category, setProCategory] = useState([]);
     useEffect(() => {
-        const fetchAllProduct = async () => {
-            const AllProductData = await getAllProduct();
-            setProCategory(AllProductData);
+        const fetchData = async () => {
+            try {
+                await dispatch(fetchAllProducts());
+            } catch (error) {
+                console.log("상품 불러오기 실패", error);
+            }
         };
-        fetchAllProduct();
-    }, []);
 
-    const uniqueCategories = [...new Set(pro_category.map(item => item.category))];
+        fetchData();
+    }, [dispatch]);
+
+    useEffect(() => {
+        setProCategory(products);
+    }, [products]);
+
+    const uniqueCategories = [...new Set(proCategory.map(item => item.category))];
 
     const items = uniqueCategories.map((category, index) => {
-        const filteredItems = pro_category.filter(item => item.category === category);
+        const filteredItems = proCategory.filter(item => item.category === category);
+
         const uniqueCategoryTypes = [...new Set(filteredItems.map(item => item.type))];
+
         return {
             label: category,
             key: `SubMenu${index}`,
@@ -48,6 +62,7 @@ const CategoryNav = () => {
             nav.classList.remove("shadow-md");
         }
     };
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
     }, []);

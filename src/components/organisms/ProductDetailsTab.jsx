@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import ProductInfo from "../ProductInfo";
+import ProductInfo from "./ProductInfo";
 import ProductReview from "./ProductReview";
-import ProductQnA from "../ProductQnA";
+import ProductQnA from "./ProductQnA";
 
 const RenderContent = ({tabView}) => {
     const renderSwitch = () => {

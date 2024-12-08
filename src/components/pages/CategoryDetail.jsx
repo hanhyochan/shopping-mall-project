@@ -1,25 +1,48 @@
-import {useEffect} from "react";
-import ProductList from "../organisms/ProductList";
-import CategoryHeader from "../molecules/CategoryHeader";
-import {useState} from "react";
-import {getAllProduct} from "../../api/productApi";
-import {useSearchParams} from "react-router-dom";
+import { useEffect } from "react";
+import Product from "../organisms/Product"
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { Button } from "antd";
+import { fetchAllProducts } from "../../RTK/slice";
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllProducts, selectProductStatus } from "../../RTK/selector";
+
 const CategoryDetail = () => {
+    console.log(import.meta.url);
+
     // url 파라미터값 갖고오기
     const [searchParams] = useSearchParams();
     const subCategory = searchParams.get("subcategory");
     const [categoryProduct, setCategoryProduct] = useState([]);
-    console.log(categoryProduct);
+    const dispatch = useDispatch();
+    const products = useSelector(selectAllProducts);
+    const status = useSelector(selectProductStatus);
+
     // 데이터 페치
     useEffect(() => {
-        const fetchCategoryProduct = async () => {
-            const allProduct = await getAllProduct();
-            const categoryProducts = allProduct.filter(item => item.type === subCategory);
-            console.log(subCategory);
-            setCategoryProduct(categoryProducts);
-        };
-        fetchCategoryProduct();
-    }, [subCategory]);
+        const fetchData = async () => {
+            try {
+                await dispatch(fetchAllProducts());
+            } catch (error) {
+                console.log("상품 불러오기 실패", error)
+            }
+        }
+        fetchData()
+    }, [dispatch]);
+
+    useEffect(() => {
+        const categoryProducts = products.filter(item => item.type === subCategory);
+        setCategoryProduct(categoryProducts);
+    })
+
+    if (status === 'loading') {
+        return <p>상품 불러오는 중...</p>;
+    }
+
+    if (status === 'failed') {
+        return <p>상품 불러오기를 실패했습니다.</p>;
+    }
+
     // 낮은가격 필터링
     const sortByLowPrice = () => {
         setCategoryProduct(prev => [...prev].sort((a, b) => a.price - b.price));
@@ -29,19 +52,48 @@ const CategoryDetail = () => {
     const sortByHighPrice = () => {
         setCategoryProduct(prev => [...prev].sort((a, b) => b.price - a.price));
     };
-
     return (
         <>
             <div className="pt-10">
-                <p className="text-lg">
+                <p>
                     {categoryProduct[0]?.category} / {subCategory}
                 </p>
-                <CategoryHeader
-                    title={subCategory}
-                    sortByLowPrice={sortByLowPrice}
-                    sortByHighPrice={sortByHighPrice}
-                />
-                <ProductList data={categoryProduct} />
+                <div className="flex items-center justify-between pb-5">
+                    <h2 className="pt-10 pb-5 text-3xl">{subCategory}</h2>
+                    <div>
+                        <Button
+                            type="primary"
+                            className="mr-2"
+                        >
+                            인기순
+                        </Button>
+                        <Button
+                            color="default"
+                            variant="filled"
+                            className="mr-2"
+                            onClick={sortByLowPrice}
+                        >
+                            낮은가격
+                        </Button>
+                        <Button
+                            color="default"
+                            variant="filled"
+                            type="warning"
+                            onClick={sortByHighPrice}
+                        >
+                            높은가격
+                        </Button>
+                    </div>
+                </div>
+
+                <div className="flex flex-wrap md:w-[80vw] xl: w-[90vw]">
+                    {categoryProduct?.map(item => (
+                        <Product
+                            data={item}
+                            key={item.id}
+                        />
+                    ))}
+                </div>
             </div>
         </>
     );
