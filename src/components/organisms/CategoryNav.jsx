@@ -28,7 +28,7 @@ const CategoryNav = () => {
         const filteredItems = pro_category.filter(item => item.category === category);
         const uniqueCategoryTypes = [...new Set(filteredItems.map(item => item.type))];
         return {
-            label: category,
+            label: category.toUpperCase(),
             key: `SubMenu${index}`,
             children: uniqueCategoryTypes.map((type, childIndex) => ({
                 label: <span>{type}</span>,
@@ -42,6 +42,7 @@ const CategoryNav = () => {
     const targetRef = useRef(null);
     const handleScroll = () => {
         const nav = targetRef.current;
+        if (!nav) return;
         if (window.scrollY > nav.offsetHeight) {
             nav.classList.add("shadow-md");
         } else {
@@ -50,7 +51,7 @@ const CategoryNav = () => {
     };
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
-    }, []);
+    }, [targetRef]);
 
     return (
         <div
