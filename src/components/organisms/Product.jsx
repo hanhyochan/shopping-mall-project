@@ -3,7 +3,8 @@ import {useNavigate} from "react-router-dom";
 import Button from "../atoms/Button";
 import {HeartOutlined, HeartFilled} from "@ant-design/icons";
 
-const Product = ({data}) => {
+const Product = ({data, reviewCount}) => {
+    console.log(reviewCount);
     const [like, setLike] = useState(false);
     const navigate = useNavigate();
 
@@ -15,7 +16,6 @@ const Product = ({data}) => {
         e.stopPropagation();
         setLike(!like);
     };
-
     return (
         <div
             onClick={() => handleClickProduct()}
@@ -44,6 +44,7 @@ const Product = ({data}) => {
             <div className="pt-2">
                 <p className="text-lg">{data.name}</p>
                 <p className="text-base">{data.price.toLocaleString("ko-KR")}원</p>
+                <p>리뷰 {reviewCount}개</p>
             </div>
         </div>
     );
