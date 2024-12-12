@@ -1,30 +1,36 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductDetailsTab from "../organisms/ProductDetailsTab"
 import ProductColors from "../organisms/ProductColors";
 import ProductSizes from "../organisms/ProductSizes";
 import ProductActions from "../organisms/ProductActions";
-import { fetchSelectedProduct } from "../../RTK/slice";
-import { useDispatch, useSelector } from 'react-redux';
-import { selectSelectedProduct, selectProductStatus } from "../../RTK/selector";
+import { useQueries } from "@tanstack/react-query";
+import { getSelectedProduct } from "../../api/productApi";
 
 const ProductDetail = () => {
     const { productId } = useParams();
-    const dispatch = useDispatch();
-    const selectedProduct = useSelector(selectSelectedProduct);
-    const status = useSelector(selectProductStatus);
+    const [selectedProduct, setSelectedProduct] = useState([])
+
+    const [productQuery] = useQueries({
+        queries: [
+            {
+                queryKey: ["selectedProduct"],
+                queryFn: () => getSelectedProduct(productId),
+            }
+        ]
+    })
+
+    const { data: selectedProductData, isLoading: isProductLoading, error: productError } = productQuery;
 
     useEffect(() => {
-        dispatch(fetchSelectedProduct(productId));
-    }, []);
+        if(selectedProductData) {
+            setSelectedProduct(selectedProductData)   
+        }
+    }, [selectedProductData])
 
-    if (status === 'loading') {
-        return <p>상품 불러오는 중...</p>;
-    }
+    if (isProductLoading) return <div>로딩중입니다</div>;
 
-    if (status === 'failed') {
-        return <p>상품 불러오기를 실패했습니다.</p>;
-    }
+    if (productError) return <div>Error fetching data</div>;
 
     return (
         <>

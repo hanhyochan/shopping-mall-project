@@ -14,22 +14,22 @@ const CategoryNav = () => {
         navigate(`category?subcategory=${subCategory}`);
     };
 
-    const [productQuery] = useQueries({
+    const [categoryQuery] = useQueries({
         queries: [
             {
-                queryKey: ["product"],
+                queryKey: ["categoryNav"],
                 queryFn: () => getAllProduct(),
             }
         ]
     })
 
-    const { data: productData, isLoading: isProductLoading, error: productError } = productQuery;
+    const { data: categoryData, isLoading: isProductLoading, error: productError } = categoryQuery;
 
     useEffect(() => {
-        if (productData) {
-            setProCategory(productData);
+        if (categoryData) {
+            setProCategory(categoryData);
         }
-    }, [productData])
+    }, [categoryData])
 
     const uniqueCategories = [...new Set(proCategory.map(item => item.category))];
 

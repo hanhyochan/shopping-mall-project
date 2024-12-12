@@ -17,7 +17,7 @@ export const getAllProduct = async () => {
     }
 };
 
-export const getSelectedProduct = async productId => {
+export const getSelectedProduct = async (productId) => {
     try {
         const response = await axios.get(`${BASE_URL}/products/${productId}?`);
         return response.data;
