@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import ProductList from "../organisms/ProductList";
 import CategoryHeader from "../molecules/CategoryHeader";
-import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { getAllProduct, getAllReiview } from "../../api/productApi";
-import { useQueries } from "@tanstack/react-query";
+import {useState} from "react";
+import {useSearchParams} from "react-router-dom";
+import {getAllProduct, getAllReiview} from "../../api/productApi";
+import {useQueries} from "@tanstack/react-query";
 
 const CategoryDetail = () => {
     const [searchParams] = useSearchParams();
@@ -24,18 +24,18 @@ const CategoryDetail = () => {
         ],
     });
 
-    const { data: productData, isLoading: isProductLoading, error: productError } = productQuery;
-    const { data: reviewsData, isLoading: isReviewsLoading, error: reviewsError } = reviewsQuery;
+    const {data: productData, isLoading: isProductLoading, error: productError} = productQuery;
+    const {data: reviewsData, isLoading: isReviewsLoading, error: reviewsError} = reviewsQuery;
 
+    useEffect(() => {
+        if (productData) {
+            const categoryData = productData.filter(item => item.type === subCategory);
+            console.log(categoryData)
+            setCategoryProduct(categoryData)
+        }
+    }, [subCategory, productData])
 
-useEffect(() => {
-    if (productData) {
-        const categoryData = productData.filter(item => item.type === subCategory);
-        setCategoryProduct(categoryData)
-    }
-}, [productData])
-    console.log(categoryProduct)
-    if (isProductLoading || isReviewsLoading) return <div>로딩중입니다다</div>;
+    if (isProductLoading || isReviewsLoading) return <div>로딩중입니닷</div>;
 
     if (productError || reviewsError) return <div>Error fetching data</div>;
 
