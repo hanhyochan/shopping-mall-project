@@ -4,41 +4,40 @@ import SearchInput from "../molecules/SearchInput";
 import { Menu } from "antd";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { fetchAllProducts } from "../../RTK/slice";
-import { useDispatch, useSelector } from 'react-redux';
-import { selectAllProducts } from "../../RTK/selector";
+import { useQueries } from "@tanstack/react-query";
+import { getAllProduct } from "../../api/productApi";
 
 const CategoryNav = () => {
-    // 서브 카테고리 페이지 이동
     const [proCategory, setProCategory] = useState([]);
     const navigate = useNavigate();
     const navigateSub = subCategory => {
         navigate(`category?subcategory=${subCategory}`);
     };
-    const dispatch = useDispatch();
-    const products = useSelector(selectAllProducts);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                await dispatch(fetchAllProducts());
-            } catch (error) {
-                console.log("상품 불러오기 실패", error);
+    const [productQuery] = useQueries({
+        queries: [
+            {
+                queryKey: ["product"],
+                queryFn: () => getAllProduct(),
             }
-        };
+        ]
+    })
 
-        fetchData();
-    }, [dispatch]);
+    const { data: productData, isLoading: isProductLoading, error: productError } = productQuery;
 
     useEffect(() => {
-        setProCategory(products);
-    }, [products]);
+        if (productData) {
+            setProCategory(productData);
+        }
+    }, [productData])
 
     const uniqueCategories = [...new Set(proCategory.map(item => item.category))];
 
+    // 카테고리 키워드만 가져온것
     const items = uniqueCategories.map((category, index) => {
+        // 카테고리에 맞춰서 모은 것들
         const filteredItems = proCategory.filter(item => item.category === category);
-
+        // 카테고리에 맞춰 모은 것들 타입만 가져온거거
         const uniqueCategoryTypes = [...new Set(filteredItems.map(item => item.type))];
 
         return {
@@ -63,10 +62,15 @@ const CategoryNav = () => {
             nav.classList.remove("shadow-md");
         }
     };
-
+    
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
     }, [targetRef]);
+
+    if (isProductLoading) return <div>로딩중입니다</div>;
+
+    if (productError) return <div>Error fetching data</div>;
+
 
     return (
         <div
