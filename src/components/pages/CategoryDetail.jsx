@@ -35,7 +35,7 @@ useEffect(() => {
     }
 }, [productData])
     console.log(categoryProduct)
-    if (isProductLoading || isReviewsLoading) return <div>로딩중입니닷</div>;
+    if (isProductLoading || isReviewsLoading) return <div>로딩중입니다다</div>;
 
     if (productError || reviewsError) return <div>Error fetching data</div>;
 
