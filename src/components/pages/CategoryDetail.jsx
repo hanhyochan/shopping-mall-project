@@ -3,52 +3,40 @@ import Product from "../organisms/Product"
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { Button } from "antd";
-import { fetchAllProducts } from "../../RTK/slice";
-import { useDispatch, useSelector } from 'react-redux';
-import { selectAllProducts, selectProductStatus } from "../../RTK/selector";
+import { getAllProduct } from "../../api/productApi";
+import { useQueries } from "@tanstack/react-query";
 
 const CategoryDetail = () => {
-    console.log(import.meta.url);
-
-    // url 파라미터값 갖고오기
+    const [categoryProduct, setCategoryProduct] = useState([]);
     const [searchParams] = useSearchParams();
     const subCategory = searchParams.get("subcategory");
-    const [categoryProduct, setCategoryProduct] = useState([]);
-    const dispatch = useDispatch();
-    const products = useSelector(selectAllProducts);
-    const status = useSelector(selectProductStatus);
 
-    // 데이터 페치
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                await dispatch(fetchAllProducts());
-            } catch (error) {
-                console.log("상품 불러오기 실패", error)
+    const [productQuery] = useQueries({
+        queries: [
+            {
+                queryKey: ["product"],
+                queryFn: () => getAllProduct(),
             }
-        }
-        fetchData()
-    }, [dispatch]);
-
-    useEffect(() => {
-        const categoryProducts = products.filter(item => item.type === subCategory);
-        setCategoryProduct(categoryProducts);
+        ]
     })
 
-    if (status === 'loading') {
-        return <p>상품 불러오는 중...</p>;
-    }
+    const { data: productData, isLoading: isProductLoading, error: productError } = productQuery;
 
-    if (status === 'failed') {
-        return <p>상품 불러오기를 실패했습니다.</p>;
-    }
+    useEffect(() => {
+        if (productData) {
+            const categoryProducts = productData.filter(item => item.type === subCategory);
+            setCategoryProduct(categoryProducts);
+        }
+    }, [productData, subCategory])
 
-    // 낮은가격 필터링
+    if (isProductLoading) return <div>로딩중입니다</div>;
+
+    if (productError) return <div>Error fetching data</div>;
+
     const sortByLowPrice = () => {
         setCategoryProduct(prev => [...prev].sort((a, b) => a.price - b.price));
     };
 
-    // 높은가격 필터링
     const sortByHighPrice = () => {
         setCategoryProduct(prev => [...prev].sort((a, b) => b.price - a.price));
     };
