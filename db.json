@@ -2621,5 +2621,9 @@
       "id": "fb7e"
     }
   ],
-  "likedProducts": []
+  "likedProducts": [
+    {
+      "id": "1"
+    }
+  ]
 }
