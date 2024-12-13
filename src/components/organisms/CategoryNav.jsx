@@ -1,32 +1,45 @@
-import {MenuOutlined} from "@ant-design/icons";
+import { MenuOutlined } from "@ant-design/icons";
 import Button from "../atoms/Button";
 import SearchInput from "../molecules/SearchInput";
-import {Menu} from "antd";
-import {useState, useEffect, useRef} from "react";
-import {useNavigate} from "react-router-dom";
-import {getAllProduct} from "../../api/productApi";
+import { Menu } from "antd";
+import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { useQueries } from "@tanstack/react-query";
+import { getAllProduct } from "../../api/productApi";
 
 const CategoryNav = () => {
-    // 서브 카테고리 페이지 이동
+    const [proCategory, setProCategory] = useState([]);
     const navigate = useNavigate();
     const navigateSub = subCategory => {
         navigate(`category?subcategory=${subCategory}`);
     };
 
-    const [pro_category, setProCategory] = useState([]);
+    const [categoryQuery] = useQueries({
+        queries: [
+            {
+                queryKey: ["categoryNav"],
+                queryFn: () => getAllProduct(),
+            }
+        ]
+    })
+
+    const { data: categoryData, isLoading: isProductLoading, error: productError } = categoryQuery;
+
     useEffect(() => {
-        const fetchAllProduct = async () => {
-            const AllProductData = await getAllProduct();
-            setProCategory(AllProductData);
-        };
-        fetchAllProduct();
-    }, []);
+        if (categoryData) {
+            setProCategory(categoryData);
+        }
+    }, [categoryData])
 
-    const uniqueCategories = [...new Set(pro_category.map(item => item.category))];
+    const uniqueCategories = [...new Set(proCategory.map(item => item.category))];
 
+    // 카테고리 키워드만 가져온것
     const items = uniqueCategories.map((category, index) => {
-        const filteredItems = pro_category.filter(item => item.category === category);
+        // 카테고리에 맞춰서 모은 것들
+        const filteredItems = proCategory.filter(item => item.category === category);
+        // 카테고리에 맞춰 모은 것들 타입만 가져온거거
         const uniqueCategoryTypes = [...new Set(filteredItems.map(item => item.type))];
+
         return {
             label: category.toUpperCase(),
             key: `SubMenu${index}`,
@@ -49,9 +62,15 @@ const CategoryNav = () => {
             nav.classList.remove("shadow-md");
         }
     };
+    
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
     }, [targetRef]);
+
+    if (isProductLoading) return <div>로딩중입니다</div>;
+
+    if (productError) return <div>Error fetching data</div>;
+
 
     return (
         <div
