@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Button from "../atoms/Button";
+import ProductColors from "./ProductColors";
 import {HeartOutlined, HeartFilled} from "@ant-design/icons";
 
 const Product = ({data, reviewCount}) => {
@@ -15,6 +16,7 @@ const Product = ({data, reviewCount}) => {
         e.stopPropagation();
         setLike(!like);
     };
+    console.log(data.option_colors);
     return (
         <div
             onClick={() => handleClickProduct()}
@@ -40,8 +42,14 @@ const Product = ({data, reviewCount}) => {
                     className="object-contain w-full h-full"
                 />
             </div>
-            <div className="pt-2">
-                <p className="text-lg">{data.name}</p>
+            <div className="pt-3 pb-5">
+                <div className="flex justify-between">
+                    <p className="max-w-[calc(100%-80px)] text-sm sm:text-base md:text-lg">{data.name}</p>
+                    <ProductColors
+                        data={data.option_colors}
+                        isButton={false}
+                    />
+                </div>
                 <p className="text-base">{data.price.toLocaleString("ko-KR")}원</p>
                 <p>리뷰 {reviewCount}개</p>
             </div>

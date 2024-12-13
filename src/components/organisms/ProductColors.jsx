@@ -1,6 +1,4 @@
-import Button from "../atoms/Button";
-
-const ProductColors = ({data = [], onColorChange}) => {
+const ProductColors = ({data = [], onColorChange, isButton = true}) => {
     const colorMap = {
         white: "bg-white border border-gray-300",
         ivory: "border border-gray-300 bg-[#fffff0]",
@@ -19,18 +17,27 @@ const ProductColors = ({data = [], onColorChange}) => {
     };
 
     return (
-        <div className="flex justify-center items-center gap-3">
+        <div className={`flex justify-center items-center gap-3 ${!isButton ? "!gap-1" : ""}`}>
             {data.map((el, index) => {
                 const colorClass = colorMap[el];
                 return colorClass ? (
-                    <Button
-                        key={index}
-                        className={`${colorClass} rounded-full w-7 h-7`}
-                        antDesign={false}
-                        aria-label={`Color: ${el}`}
-                        data-color={el}
-                        onClick={() => onColorChange(el)}
-                    />
+                    <div key={index}>
+                        {isButton ? (
+                            <button
+                                className={`${colorClass} rounded-full w-7 h-7`}
+                                aria-label={`Color: ${el}`}
+                                data-color={el}
+                                onClick={() => {
+                                    onColorChange(el);
+                                }}
+                            />
+                        ) : (
+                            <span
+                                className={`${colorClass} w-4 h-1 flex`}
+                                aria-label={`Color: ${el}`}
+                            />
+                        )}
+                    </div>
                 ) : null;
             })}
         </div>
