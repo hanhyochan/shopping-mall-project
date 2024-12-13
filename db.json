@@ -2620,5 +2620,15 @@
       ],
       "id": "fb7e"
     }
+  ],
+  "likedProducts": [
+    {
+      "id": "aeee",
+      "productId": "7"
+    },
+    {
+      "id": "4c07",
+      "productId": "1"
+    }
   ]
 }

@@ -1,5 +1,4 @@
 import axios from "axios";
-const BASE_URL = 'http://localhost:3000'
 
 const apiClient = axios.create({
     baseURL: "http://localhost:3000",
@@ -10,21 +9,41 @@ const apiClient = axios.create({
 
 export const getAllProduct = async () => {
     try {
-        const response = await axios.get(`${BASE_URL}/products`);
+        const response = await apiClient.get("/products");
         return response.data;
     } catch (error) {
         console.error("상품데이터 패치에 실패했습니다.", error);
+        throw error;
     }
 };
 
 export const getSelectedProduct = async (productId) => {
     try {
-        const response = await axios.get(`${BASE_URL}/products/${productId}?`);
+        const response = await apiClient.get(`/products/${productId}?`);
         return response.data;
     } catch (error) {
         console.error("상품 상세 정보 패치에 실패했습니다.", error);
     }
 };
+
+export const toggleLikedProducts = async (productId) => {
+    try {
+        const likedProductsResponse = await apiClient.get('/likedProducts');
+        const likedProducts = likedProductsResponse.data;
+        const isProductLiked = likedProducts.some(product => product.productId === productId)
+
+        if (isProductLiked) {
+            const response = await apiClient.delete(`/likedProducts/${id}`);
+            return response.data
+        } else {
+            const response = await apiClient.post('/likedProducts', { productId });
+            return response.data
+        }
+    } catch (error) {
+        console.error('Error in toggling liked product:', error);
+        throw new Error('상품을 좋아요 처리하는데 오류가 발생했습니다.');
+    }
+}
 
 export const getAllReiview = async () => {
     try {
@@ -35,6 +54,7 @@ export const getAllReiview = async () => {
         throw error;
     }
 };
+
 
 export const postReview = async (productId, newReview) => {
     try {
