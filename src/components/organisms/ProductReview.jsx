@@ -1,16 +1,16 @@
 import {useState, useCallback, useMemo} from "react";
-import {useQuery} from "@tanstack/react-query";
-import {getAllReiview} from "../../api/productApi";
+import {useQuery, useMutation, useQueryClient} from "@tanstack/react-query";
+import {getAllReiview, deleteReview} from "../../api/productApi";
 import {useParams} from "react-router-dom";
 import ReviewList from "./ReviewList";
-import {Rate} from "antd";
+import {Rate, Modal, message} from "antd";
 import ReviewModal from "./ReviewModal";
 
 const ProductReview = () => {
     const {productId} = useParams();
 
-    // 모든 Hook을 최상단에 배치
     const [isModalOpen, setIsModalOpen] = useState(false);
+    // 리뷰 조회
     const {data, error, isLoading} = useQuery({
         queryKey: ["reviews", productId],
         queryFn: () => getAllReiview(),
