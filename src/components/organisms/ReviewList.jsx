@@ -1,7 +1,7 @@
 import {Row, Col} from "antd";
 import ReviewItem from "./ReviewItem.jsx";
 
-const ReviewList = ({data}) => {
+const ReviewList = ({data, deleteReview}) => {
     return (
         <>
             <Row
@@ -13,7 +13,10 @@ const ReviewList = ({data}) => {
                         xs={24}
                         key={item.id}
                     >
-                        <ReviewItem data={item} />
+                        <ReviewItem
+                            data={item}
+                            deleteReview={deleteReview}
+                        />
                     </Col>
                 ))}
             </Row>

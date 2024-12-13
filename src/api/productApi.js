@@ -85,3 +85,14 @@ export const postReview = async (productId, newReview) => {
         throw error;
     }
 };
+
+export const deleteReview = async id => {
+    try {
+        const response = await apiClient.delete("/reviews");
+        console.log(id);
+        return response.data;
+    } catch (error) {
+        console.error("Error adding review:", error);
+        throw error;
+    }
+};
