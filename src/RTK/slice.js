@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-// import { getAllProduct, getSelectedProduct } from '../api/productApi';
+// import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+// // import { getAllProduct, getSelectedProduct } from '../api/productApi';
 
 // const favoriteSlice = createSlice({
 //   name: 'favorites',
