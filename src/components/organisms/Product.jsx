@@ -1,13 +1,25 @@
-import {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../atoms/Button";
-import {HeartOutlined, HeartFilled} from "@ant-design/icons";
-import { useDispatch, useSelector } from 'react-redux';
-// import toggle
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import { useMutation } from '@tanstack/react-query';
+import { toggleLikedProducts } from "../../api/productApi";
 
-const Product = ({data, reviewCount}) => {
+const Product = ({ data, reviewCount }) => {
     const [like, setLike] = useState(false);
     const navigate = useNavigate();
+
+    const mutation = useMutation({
+        mutationFn: (productId) => toggleLikedProducts(productId),  // data.id를 전달받아 처리
+        onSuccess: () => {
+            setLike(prev => !prev);
+            console.log('데이터가 저장되었습니다.');
+        },
+        onError: (error) => {
+            console.log('상품 저장 실패:', error);
+            alert(`상품 저장 중 오류 발생 ${error.message}`);
+        }
+    });
 
     const handleClickProduct = () => {
         navigate(`/details/${data.id}`);
@@ -15,9 +27,9 @@ const Product = ({data, reviewCount}) => {
 
     const handleClick = e => {
         e.stopPropagation();
-        setLike(!like);
-        console.log(data)
+        mutation.mutate(data.id); 
     };
+    
     return (
         <div
             onClick={() => handleClickProduct()}

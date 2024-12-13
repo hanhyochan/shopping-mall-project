@@ -21,7 +21,7 @@ const Main = () => {
     const {data: productData, isLoading: isProductLoading, error: productError} = productQuery;
     const {data: reviewsData, isLoading: isReviewsLoading, error: reviewsError} = reviewsQuery;
 
-    if (isProductLoading || isReviewsLoading) return <div>로딩중입니다다</div>;
+    if (isProductLoading || isReviewsLoading) return <div>로딩중입니다</div>;
 
     if (productError || reviewsError) return <div>Error fetching data</div>;
     return (
