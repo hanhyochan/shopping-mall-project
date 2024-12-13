@@ -8,9 +8,9 @@ import { toggleLikedProducts } from "../../api/productApi";
 const Product = ({ data, reviewCount }) => {
     const [like, setLike] = useState(false);
     const navigate = useNavigate();
-
+console.log(like)
     const mutation = useMutation({
-        mutationFn: (productId) => toggleLikedProducts(productId),  // data.id를 전달받아 처리
+        mutationFn: (id) => toggleLikedProducts(id),  // data.id를 전달받아 처리
         onSuccess: () => {
             setLike(prev => !prev);
             console.log('데이터가 저장되었습니다.');

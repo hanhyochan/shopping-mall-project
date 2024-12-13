@@ -26,17 +26,18 @@ export const getSelectedProduct = async (productId) => {
     }
 };
 
-export const toggleLikedProducts = async (productId) => {
+export const toggleLikedProducts = async (id) => {
     try {
         const likedProductsResponse = await apiClient.get('/likedProducts');
         const likedProducts = likedProductsResponse.data;
-        const isProductLiked = likedProducts.some(product => product.productId === productId)
+        const isProductLiked = likedProducts.some(product => product.id === id)
 
         if (isProductLiked) {
             const response = await apiClient.delete(`/likedProducts/${id}`);
             return response.data
         } else {
-            const response = await apiClient.post('/likedProducts', { productId });
+            console.log(id)
+            const response = await apiClient.post('/likedProducts', {id});
             return response.data
         }
     } catch (error) {
