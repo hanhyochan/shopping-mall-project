@@ -4,7 +4,6 @@ import Button from "../atoms/Button";
 import {HeartOutlined, HeartFilled} from "@ant-design/icons";
 
 const Product = ({data, reviewCount}) => {
-    console.log(reviewCount);
     const [like, setLike] = useState(false);
     const navigate = useNavigate();
 

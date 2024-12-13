@@ -1,103 +1,71 @@
-import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-import {getSelectedProduct} from "../../api/productApi";
-import Heading from "../atoms/Heading";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import ProductDetailsTab from "../organisms/ProductDetailsTab"
 import ProductColors from "../organisms/ProductColors";
 import ProductSizes from "../organisms/ProductSizes";
-import ProductQuantity from "../organisms/ProductQuantity";
 import ProductActions from "../organisms/ProductActions";
-import ProductDetailsTab from "../organisms/ProductDetailsTab";
+import { useQueries } from "@tanstack/react-query";
+import { getSelectedProduct } from "../../api/productApi";
+
 const ProductDetail = () => {
-    const {productId} = useParams();
-    const [selectedProduct, setSelectedProduct] = useState({images: []});
-    const [favoriteProducts, setFavoriteProducts] = useState([]);
+    const { productId } = useParams();
+    const [selectedProduct, setSelectedProduct] = useState([])
+
+    const [productQuery] = useQueries({
+        queries: [
+            {
+                queryKey: ["selectedProduct"],
+                queryFn: () => getSelectedProduct(productId),
+            }
+        ]
+    })
+
+    const { data: selectedProductData, isLoading: isProductLoading, error: productError } = productQuery;
 
     useEffect(() => {
-        const fetchSelectedProduct = async () => {
-            const selectedProductData = await getSelectedProduct(productId);
-            setSelectedProduct(selectedProductData);
-        };
-        fetchSelectedProduct();
-    }, []);
+        if(selectedProductData) {
+            setSelectedProduct(selectedProductData)   
+        }
+    }, [selectedProductData])
 
-    const addfavoriteProducts = () => {
-        setFavoriteProducts([...favoriteProducts, selectedProduct]);
-    };
+    if (isProductLoading) return <div>로딩중입니다</div>;
 
-    // 상품수량
-    const [quantity, setQuantity] = useState(0);
-    const handleQuantityChange = newQuantity => {
-        setQuantity(newQuantity);
-    };
-
-    // 상품상태
-    const [selectedOptions, setSelectedOptions] = useState({
-        color: null,
-        size: null,
-        quantity: 0,
-    });
-    // 상품상태 추가
-    const handleOptionChange = (optionType, value) => {
-        setSelectedOptions(prev => ({
-            ...prev,
-            [optionType]: value,
-        }));
-    };
+    if (productError) return <div>Error fetching data</div>;
 
     return (
         <>
-            <div className="my-20 grid h-180 grid-cols-1 md:grid-cols-2 grid-rows-1 gap-10">
-                <div className="border border-gray-300">
+            <div className="my-20 grid h-180 grid-cols-2 grid-rows-1 gap-[5%]">
+                <div className="border border-gray-300 ">
                     <img
                         src={selectedProduct.img}
-                        alt={selectedProduct.name}
+                        alt=""
                         className="object-cover w-full h-full"
                     />
                 </div>
 
                 <div className="grid grid-cols-1 grid-rows-2">
                     <div className="flex flex-col gap-6">
-                        <Heading
-                            className="!text-2xl"
-                            text={selectedProduct.name}
-                        />
-                        <span className="text-2xl font-semibold">{selectedProduct.price ? `${selectedProduct.price.toLocaleString("ko-KR")}원` : "0원"}</span>
+                        <h1 className="text-2xl">{selectedProduct.name}</h1>
+                        <span className="text-2xl font-semibold">{selectedProduct.price}원</span>
                         <div className="flex items-center gap-5">
                             <p className="text-lg font-medium">배송비</p>
                             <p className="text-base">3,000원(5만원 이상 구매시 무료)</p>
                         </div>
+                        <hr></hr>
                         <div className="flex items-center gap-5">
                             <p className="text-lg ">Colors: </p>
-                            <ProductColors
-                                data={selectedProduct.option_colors}
-                                onColorChange={color => handleOptionChange("color", color)}
-                            />
+                            <ProductColors key={selectedProduct.id + 1} data={selectedProduct.option_colors} />
                         </div>
                         <div className="flex items-center gap-5">
                             <p className="text-lg ">Sizes: </p>
-                            <ProductSizes
-                                data={selectedProduct.option_sizes}
-                                onSizeChange={size => handleOptionChange("size", size)}
-                            />
-                        </div>
-                        <div className="flex items-center gap-5">
-                            <p className="text-lg">Quantity: </p>
-                            <ProductQuantity
-                                initialQuantity={quantity}
-                                onChange={quantity => handleOptionChange("quantity", quantity)}
-                            />
-                        </div>
-                        <div className="flex gap-3">
-                            <p>{selectedOptions.color && `색상 ${selectedOptions.color}`}</p>
-                            <p>{selectedOptions.size && `사이즈 ${selectedOptions.size}`}</p>
-                            <p>{selectedOptions.quantity > 0 && `수량 ${selectedOptions.quantity}`}</p>
+                            <ProductSizes key={selectedProduct.id + 2} data={selectedProduct.option_sizes} />
                         </div>
                     </div>
 
                     <div className="flex flex-col-reverse gap-6">
                         <div className="flex flex-col gap-6">
-                            <p className="flex flex-row-reverse text-lg font-medium">총 상품 금액 {selectedProduct.price ? `${selectedProduct.price.toLocaleString("ko-KR")}원` : "0원"}</p>
-                            <ProductActions addfavoriteProducts={addfavoriteProducts} />
+                            <p className="flex flex-row-reverse text-lg font-medium">총 상품 금액 {selectedProduct.price}원</p>
+                            <ProductActions />
                         </div>
                     </div>
                 </div>
