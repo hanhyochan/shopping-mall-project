@@ -30,7 +30,6 @@ const CategoryDetail = () => {
     useEffect(() => {
         if (productData) {
             const categoryData = productData.filter(item => item.type === subCategory);
-            console.log(categoryData)
             setCategoryProduct(categoryData)
         }
     }, [subCategory, productData])

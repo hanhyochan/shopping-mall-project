@@ -33,11 +33,8 @@ const CategoryNav = () => {
 
     const uniqueCategories = [...new Set(proCategory.map(item => item.category))];
 
-    // 카테고리 키워드만 가져온것
     const items = uniqueCategories.map((category, index) => {
-        // 카테고리에 맞춰서 모은 것들
         const filteredItems = proCategory.filter(item => item.category === category);
-        // 카테고리에 맞춰 모은 것들 타입만 가져온거거
         const uniqueCategoryTypes = [...new Set(filteredItems.map(item => item.type))];
 
         return {
@@ -50,8 +47,7 @@ const CategoryNav = () => {
             })),
         };
     });
-
-    // 스크롤
+    
     const targetRef = useRef(null);
     const handleScroll = () => {
         const nav = targetRef.current;
