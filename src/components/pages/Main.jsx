@@ -18,14 +18,11 @@ const Main = () => {
         ],
     });
 
-    // 상품 데이터 로딩 및 에러 처리
     const {data: productData, isLoading: isProductLoading, error: productError} = productQuery;
     const {data: reviewsData, isLoading: isReviewsLoading, error: reviewsError} = reviewsQuery;
 
-    // 로딩 상태 처리
     if (isProductLoading || isReviewsLoading) return <div>로딩중입니다다</div>;
 
-    // 에러 처리
     if (productError || reviewsError) return <div>Error fetching data</div>;
     return (
         <>

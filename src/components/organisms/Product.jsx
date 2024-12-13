@@ -2,6 +2,8 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import Button from "../atoms/Button";
 import {HeartOutlined, HeartFilled} from "@ant-design/icons";
+import { useDispatch, useSelector } from 'react-redux';
+// import toggle
 
 const Product = ({data, reviewCount}) => {
     const [like, setLike] = useState(false);
@@ -14,6 +16,7 @@ const Product = ({data, reviewCount}) => {
     const handleClick = e => {
         e.stopPropagation();
         setLike(!like);
+        console.log(data)
     };
     return (
         <div
