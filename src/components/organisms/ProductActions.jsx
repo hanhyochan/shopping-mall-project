@@ -4,7 +4,7 @@ import useToggleLike from "../../hooks/useToggleLike"
 import useLikedProducts from "../../hooks/useLikedProducts";
 
 const ProductActions = (productId) => {
-    const selectedProductId = Number(productId.selectedProductId)
+    const selectedProductId = productId.selectedProductId
     const { mutate } = useToggleLike()
     const likedProductIdData = useLikedProducts();
     const [like, setLike] = useState(false);
