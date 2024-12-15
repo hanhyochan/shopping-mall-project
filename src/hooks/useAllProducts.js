@@ -3,12 +3,12 @@ import { getAllProduct } from '../api/productApi';
 
 const useAllProducts = () => {
 
-    const { data: allProductsData } = useQuery({
+    const { data: allProductsData, isLoading: isProductsLoading, error: productsError } = useQuery({
         queryKey: ["allProducts"],
         queryFn: getAllProduct
     });
 
-    return allProductsData;
+    return {allProductsData, isProductsLoading, productsError};
 };
 
 export default useAllProducts;

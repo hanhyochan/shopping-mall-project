@@ -3,12 +3,12 @@ import { getAllReiview } from '../api/productApi';
 
 const useAllReview = () => {
 
-    const { data: allReviewData } = useQuery({
+    const { data: allReviewData, isLoading: isReviewsLoading, error: reviewsError } = useQuery({
         queryKey: ["reviews"],
         queryFn: getAllReiview
     });
 
-    return allReviewData;
+    return { allReviewData, isReviewsLoading, reviewsError };
 };
 
 export default useAllReview;

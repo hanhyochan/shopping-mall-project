@@ -392,20 +392,6 @@
       "pro_id": 1,
       "reviews": [
         {
-          "id": "user1",
-          "rating": 5,
-          "title": "훌륭한 제품!",
-          "content": "정말 만족스러운 제품입니다. 너무 좋아요!",
-          "like": 12
-        },
-        {
-          "id": "user2",
-          "rating": 4,
-          "title": "가격 대비 좋은 제품",
-          "content": "기대한 대로 잘 작동합니다.",
-          "like": 8
-        },
-        {
           "id": "user3",
           "rating": 3,
           "title": "보통이에요",

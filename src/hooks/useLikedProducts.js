@@ -3,12 +3,12 @@ import { getLikedProductsId } from '../api/productApi';
 
 const useLikedProducts = () => {
 
-    const { data: likedProductIdData } = useQuery({
+    const { data: likedProductIdData, isLoading: isLikedProductsLoading, error: likedProductsError } = useQuery({
         queryKey: ["likedProductId"],
         queryFn: getLikedProductsId
     });
 
-    return likedProductIdData;
+    return { likedProductIdData, isLikedProductsLoading, likedProductsError };
 };
 
 export default useLikedProducts;
