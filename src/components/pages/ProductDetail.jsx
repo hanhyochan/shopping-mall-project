@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import ProductDetailsTab from "../organisms/ProductDetailsTab"
+import React, {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
+import ProductDetailsTab from "../organisms/ProductDetailsTab";
 import ProductColors from "../organisms/ProductColors";
 import ProductSizes from "../organisms/ProductSizes";
 import ProductActions from "../organisms/ProductActions";
-import { useQueries } from "@tanstack/react-query";
-import { getSelectedProduct } from "../../api/productApi";
+import {useQueries} from "@tanstack/react-query";
+import {getSelectedProduct} from "../../api/productApi";
 
 const ProductDetail = () => {
-    const { productId } = useParams();
-    const [selectedProduct, setSelectedProduct] = useState([])
+    const {productId} = useParams();
+    const [selectedProduct, setSelectedProduct] = useState([]);
 
     const [productQuery] = useQueries({
         queries: [
             {
                 queryKey: ["selectedProduct"],
                 queryFn: () => getSelectedProduct(productId),
-            }
-        ]
-    })
+            },
+        ],
+    });
 
-    const { data: selectedProductData, isLoading: isProductLoading, error: productError } = productQuery;
+    const {data: selectedProductData, isLoading: isProductLoading, error: productError} = productQuery;
 
     useEffect(() => {
         if (selectedProductData) {
-            setSelectedProduct(selectedProductData)
+            setSelectedProduct(selectedProductData);
         }
-    }, [selectedProductData])
+    }, [selectedProductData]);
 
     if (isProductLoading) return <div>로딩중입니다</div>;
 
@@ -34,7 +34,7 @@ const ProductDetail = () => {
 
     return (
         <>
-            <div className="my-20 grid h-180 grid-cols-2 grid-rows-1 gap-[5%]">
+            <div className="my-20 h-180 grid grid-cols-1 sm:grid-cols-2 gap-[5%]">
                 <div className="border border-gray-300 ">
                     <img
                         src={selectedProduct.img}
@@ -54,11 +54,17 @@ const ProductDetail = () => {
                         <hr></hr>
                         <div className="flex items-center gap-5">
                             <p className="text-lg ">Colors: </p>
-                            <ProductColors key={selectedProduct.id + 1} data={selectedProduct.option_colors} />
+                            <ProductColors
+                                key={selectedProduct.id + 1}
+                                data={selectedProduct.option_colors}
+                            />
                         </div>
                         <div className="flex items-center gap-5">
                             <p className="text-lg ">Sizes: </p>
-                            <ProductSizes key={selectedProduct.id + 2} data={selectedProduct.option_sizes} />
+                            <ProductSizes
+                                key={selectedProduct.id + 2}
+                                data={selectedProduct.option_sizes}
+                            />
                         </div>
                     </div>
 

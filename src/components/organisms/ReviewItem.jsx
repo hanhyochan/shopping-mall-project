@@ -13,15 +13,14 @@ const ReviewItem = ({data}) => {
     }
     const [menuOpen, setMenuOpen] = useState(false);
     const handleClick = useCallback(() => {
-        setMenuOpen(!menuOpen);
+        setMenuOpen(prev => !prev);
     }, []);
 
     // 리뷰 삭제
     const deleteReviewMutation = useMutation({
-        mutationFn: deleteReview,
+        mutationFn: reviewId => deleteReview(reviewId),
         onSuccess: () => {
-            // 삭제 성공 시 해당 상품의 리뷰 쿼리 무효화
-            queryClient.invalidateQueries(["reviews", id]);
+            queryClient.invalidateQueries(["reviews", data.id]);
             message.success("리뷰가 성공적으로 삭제되었습니다.");
         },
         onError: error => {
@@ -30,7 +29,6 @@ const ReviewItem = ({data}) => {
         },
     });
 
-    // 리뷰 삭제
     const handleDeleteReview = useCallback(
         reviewId => {
             Modal.confirm({
