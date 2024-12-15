@@ -1,40 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../atoms/Button";
-<<<<<<< HEAD
 import ProductColors from "./ProductColors";
-import {HeartOutlined, HeartFilled} from "@ant-design/icons";
-=======
 import { HeartOutlined, HeartFilled } from "@ant-design/icons";
-import { useMutation } from '@tanstack/react-query';
-import { toggleLikedProducts } from "../../api/productApi";
->>>>>>> 60c909547786f5ca0f9d10ea27006a918e7c0f4a
+import useToggleLike from "../../hooks/useToggleLike";
+import useLikedProducts from "../../hooks/useLikedProducts";
 
 const Product = ({ data, reviewCount }) => {
     const [like, setLike] = useState(false);
     const navigate = useNavigate();
-console.log(like)
-    const mutation = useMutation({
-        mutationFn: (id) => toggleLikedProducts(id),  // data.id를 전달받아 처리
-        onSuccess: () => {
-            setLike(prev => !prev);
-            console.log('데이터가 저장되었습니다.');
-        },
-        onError: (error) => {
-            console.log('상품 저장 실패:', error);
-            alert(`상품 저장 중 오류 발생 ${error.message}`);
-        }
-    });
+    const { mutate } = useToggleLike();
+    const likedProductIdData = useLikedProducts();
 
+    useEffect(() => {
+        if (likedProductIdData) {
+            const isLiked = likedProductIdData.some(item => item.id === data.id)
+            setLike(isLiked)
+        }
+    }, [likedProductIdData])
+    
     const handleClickProduct = () => {
         navigate(`/details/${data.id}`);
     };
 
     const handleClick = e => {
         e.stopPropagation();
-        mutation.mutate(data.id); 
+        mutate(data.id, {
+            onSuccess: () => { 
+                setLike(prev => !prev)
+            }
+        });
     };
-    
+
     return (
         <div
             onClick={() => handleClickProduct()}
