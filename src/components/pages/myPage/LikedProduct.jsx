@@ -1,4 +1,4 @@
-import ProductLikeList from "../../organisms/ProductLikeLikst";
+import ProductLikeList from "../../organisms/ProductLikeList";
 import useLikedProducts from "../../../hooks/useLikedProducts";
 import useAllProducts from "../../../hooks/useAllProducts";
 
