@@ -28,14 +28,14 @@ const ProductLikeList = ({title, data, className}) => {
             dataIndex: "total",
             key: "total",
             render: (text, record) => (
-                <div className="flex justify-center items-center gap-10">
+                <div className="flex items-center justify-center gap-10">
                     <span>{(record.price + 3000).toLocaleString("ko-KR")}원</span>
                     <ProductLikeActions data={record} />
                 </div>
             ),
         },
     ];
-
+console.log(data)
     return (
         <>
             <Heading
