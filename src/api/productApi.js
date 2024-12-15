@@ -33,11 +33,9 @@ export const toggleLikedProducts = async (id) => {
         const isProductLiked = likedProducts.some(product => product.id === id)
 
         if (isProductLiked) {
-            console.log(typeof id)
             const response = await apiClient.delete(`/likedProducts/${id}`);
             return response.data
         } else {
-            console.log(typeof id)
             const response = await apiClient.post('/likedProducts', {id});
             return response.data
         }
