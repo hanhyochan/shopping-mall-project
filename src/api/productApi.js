@@ -17,7 +17,7 @@ export const getAllProduct = async () => {
     }
 };
 
-export const getSelectedProduct = async (productId) => {
+export const getSelectedProduct = async productId => {
     try {
         const response = await apiClient.get(`/products/${productId}?`);
         return response.data;
@@ -26,25 +26,25 @@ export const getSelectedProduct = async (productId) => {
     }
 };
 
-export const toggleLikedProducts = async (id) => {
+export const toggleLikedProducts = async id => {
     try {
-        const likedProductsResponse = await apiClient.get('/likedProducts');
+        const likedProductsResponse = await apiClient.get("/likedProducts");
         const likedProducts = likedProductsResponse.data;
-        const isProductLiked = likedProducts.some(product => product.id === id)
+        const isProductLiked = likedProducts.some(product => product.id === id);
 
         if (isProductLiked) {
             const response = await apiClient.delete(`/likedProducts/${id}`);
-            return response.data
+            return response.data;
         } else {
-            console.log(id)
-            const response = await apiClient.post('/likedProducts', {id});
-            return response.data
+            console.log(id);
+            const response = await apiClient.post("/likedProducts", {id});
+            return response.data;
         }
     } catch (error) {
-        console.error('Error in toggling liked product:', error);
-        throw new Error('상품을 좋아요 처리하는데 오류가 발생했습니다.');
+        console.error("Error in toggling liked product:", error);
+        throw new Error("상품을 좋아요 처리하는데 오류가 발생했습니다.");
     }
-}
+};
 
 export const getAllReiview = async () => {
     try {
@@ -55,7 +55,6 @@ export const getAllReiview = async () => {
         throw error;
     }
 };
-
 
 export const postReview = async (productId, newReview) => {
     try {
@@ -107,13 +106,28 @@ export const postReview = async (productId, newReview) => {
     }
 };
 
-export const deleteReview = async id => {
+export const deleteReview = async reviewId => {
     try {
-        const response = await apiClient.delete("/reviews");
-        console.log(id);
-        return response.data;
+        // 먼저 리뷰 목록을 가져와서 해당 리뷰가 속한 제품의 리뷰 데이터를 찾습니다.
+        const reviewsResponse = await apiClient.get("/reviews");
+        const reviewData = reviewsResponse.data;
+
+        // 해당 리뷰가 속한 제품의 리뷰 객체 찾기
+        const productReview = reviewData.find(item => item.reviews.some(review => review.id === reviewId));
+
+        if (productReview) {
+            // 해당 제품의 리뷰 배열에서 특정 리뷰 제거
+            productReview.reviews = productReview.reviews.filter(review => review.id !== reviewId);
+
+            // 업데이트된 리뷰 객체로 PUT 요청
+            await apiClient.put(`/reviews/${productReview.id}`, productReview);
+
+            return {success: true, message: "리뷰가 성공적으로 삭제되었습니다."};
+        } else {
+            throw new Error("해당 리뷰를 찾을 수 없습니다.");
+        }
     } catch (error) {
-        console.error("Error adding review:", error);
+        console.error("리뷰 삭제 중 오류:", error);
         throw error;
     }
 };
