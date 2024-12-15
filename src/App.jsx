@@ -1,7 +1,7 @@
 // import ProductDetail from "./pages/ProductDetail";
 import {Routes, Route} from "react-router-dom";
 import Layout from "./components/templates/Layout";
-import MyPage from "./components/pages/myPage/MyPage";
+import MyPageLayout from "./components/pages/myPage/MyPageLayout";
 import Main from "./components/pages/Main";
 import CategoryDetail from "./components/pages/CategoryDetail";
 import ProductDetail from "./components/pages/ProductDetail";
@@ -25,7 +25,7 @@ const App = () => {
                     />
                     <Route
                         path="/myPage"
-                        element={<MyPage />}
+                        element={<MyPageLayout />}
                     />
                 </Routes>
             </Layout>
