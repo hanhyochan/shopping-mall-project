@@ -36,14 +36,8 @@ export const toggleLikedProducts = async id => {
             const response = await apiClient.delete(`/likedProducts/${id}`);
             return response.data;
         } else {
-<<<<<<< HEAD
-            console.log(id);
             const response = await apiClient.post("/likedProducts", {id});
             return response.data;
-=======
-            const response = await apiClient.post('/likedProducts', {id});
-            return response.data
->>>>>>> 958e39e6633b068816a1b66f63d0e3c731ada921
         }
     } catch (error) {
         console.error("Error in toggling liked product:", error);
@@ -51,14 +45,14 @@ export const toggleLikedProducts = async id => {
     }
 };
 
-export const getLikedProductsId = async() => {
+export const getLikedProductsId = async () => {
     try {
-        const response = await apiClient.get('/likedProducts');
-        return response.data
+        const response = await apiClient.get("/likedProducts");
+        return response.data;
     } catch (error) {
-        console.log(4)
+        console.log(4);
     }
-}
+};
 
 export const getAllReiview = async () => {
     try {

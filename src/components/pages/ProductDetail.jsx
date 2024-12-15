@@ -34,7 +34,7 @@ const ProductDetail = () => {
 
     return (
         <>
-            <div className="my-20 grid h-180 grid grid-cols-1 sm:grid-cols-2 gap-[5%]">
+            <div className="my-20 h-180 grid grid-cols-1 sm:grid-cols-2 gap-[5%]">
                 <div className="border border-gray-300 ">
                     <img
                         src={selectedProduct.img}
