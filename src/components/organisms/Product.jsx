@@ -10,7 +10,7 @@ const Product = ({ data, reviewCount }) => {
     const [like, setLike] = useState(false);
     const navigate = useNavigate();
     const { mutate } = useToggleLike();
-    const likedProductIdData = useLikedProducts();
+    const { likedProductIdData, isLikedProductsLoading, likedProductsError } = useLikedProducts();
 
     useEffect(() => {
         if (likedProductIdData) {
@@ -18,6 +18,10 @@ const Product = ({ data, reviewCount }) => {
             setLike(isLiked)
         }
     }, [likedProductIdData])
+
+    if (isLikedProductsLoading) return <div>로딩중입니다</div>;
+
+    if (likedProductsError) return <div>Error fetching data</div>;
     
     const handleClickProduct = () => {
         navigate(`/details/${data.id}`);

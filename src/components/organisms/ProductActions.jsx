@@ -6,7 +6,7 @@ import useLikedProducts from "../../hooks/useLikedProducts";
 const ProductActions = (productId) => {
     const selectedProductId = productId.selectedProductId
     const { mutate } = useToggleLike()
-    const likedProductIdData = useLikedProducts();
+    const { likedProductIdData, isLikedProductLoading, likedProductError } = useLikedProducts();
     const [like, setLike] = useState(false);
 
     const handleClick = () => {
@@ -23,6 +23,9 @@ const ProductActions = (productId) => {
             setLike(isLiked)
         }
     }, [likedProductIdData])
+
+    if (isLikedProductLoading) return <div>로딩중입니다</div>;
+    if (likedProductError) return <div>Error fetching data</div>;
 
     return (
         <div className="grid grid-cols-3 grid-rows-1 gap-4">
