@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import {useState, useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 import Button from "../atoms/Button";
 import ProductColors from "./ProductColors";
-import { HeartOutlined, HeartFilled } from "@ant-design/icons";
+import {HeartOutlined, HeartFilled} from "@ant-design/icons";
 import useToggleLike from "../../hooks/useToggleLike";
 import useLikedProducts from "../../hooks/useLikedProducts";
 
-const Product = ({ data, reviewCount }) => {
+const Product = ({data, reviewCount}) => {
     const [like, setLike] = useState(false);
     const navigate = useNavigate();
-    const { mutate } = useToggleLike();
+    const {mutate} = useToggleLike();
     const likedProductIdData = useLikedProducts();
 
     useEffect(() => {
         if (likedProductIdData) {
-            const isLiked = likedProductIdData.some(item => item.id === data.id)
-            setLike(isLiked)
+            const isLiked = likedProductIdData.some(item => item.id === data.id);
+            setLike(isLiked);
         }
-    }, [likedProductIdData])
-    
+    }, [likedProductIdData]);
+
     const handleClickProduct = () => {
         navigate(`/details/${data.id}`);
     };
@@ -26,9 +26,9 @@ const Product = ({ data, reviewCount }) => {
     const handleClick = e => {
         e.stopPropagation();
         mutate(data.id, {
-            onSuccess: () => { 
-                setLike(prev => !prev)
-            }
+            onSuccess: () => {
+                setLike(prev => !prev);
+            },
         });
     };
 
@@ -66,7 +66,7 @@ const Product = ({ data, reviewCount }) => {
                     />
                 </div>
                 <p className="text-base">{data.price.toLocaleString("ko-KR")}원</p>
-                <p>리뷰 {reviewCount}개</p>
+                <p className="text-base">리뷰 {reviewCount}개</p>
             </div>
         </div>
     );

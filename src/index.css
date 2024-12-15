@@ -2,26 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset 기본 스타일 */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* html, body 설정 */
 html,
 body {
 }
 
-/* #root 설정 */
 #root {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: column; /* 필요에 따라 변경 */
-    justify-content: center; /* 컨텐츠 수직 정렬 */
-    align-items: center; /* 컨텐츠 수평 정렬 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* swiper */
@@ -50,4 +47,24 @@ body {
 .swiper-button-prev:after,
 .swiper-button-next:after {
     font-size: 30px !important;
+}
+/* 반응형 */
+@layer utilities {
+    @variants responsive {
+        @screen sm {
+            html {
+                font-size: 12px; /* 640px 이상 */
+            }
+        }
+        @screen md {
+            html {
+                font-size: 14px; /* 768px 이상 */
+            }
+        }
+        @screen lg {
+            html {
+                font-size: 16px; /* 1024px 이상 */
+            }
+        }
+    }
 }
