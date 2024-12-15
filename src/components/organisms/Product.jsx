@@ -9,15 +9,15 @@ import useLikedProducts from "../../hooks/useLikedProducts";
 const Product = ({ data, reviewCount }) => {
     const [like, setLike] = useState(false);
     const navigate = useNavigate();
-    const { mutate } = useToggleLike();
-    const { likedProductIdData, isLikedProductsLoading, likedProductsError } = useLikedProducts();
+    const {mutate} = useToggleLike();
+    const {likedProductIdData, isLikedProductsLoading, likedProductsError} = useLikedProducts();
 
     useEffect(() => {
         if (likedProductIdData) {
             const isLiked = likedProductIdData.some(item => item.id === data.id);
             setLike(isLiked);
         }
-    }, [likedProductIdData])
+    }, [likedProductIdData]);
 
     if (isLikedProductsLoading) return <div>로딩중입니다</div>;
 
@@ -31,6 +31,12 @@ const Product = ({ data, reviewCount }) => {
         e.stopPropagation();
         mutate(data.id, {
             onSuccess: () => {
+                //like true이면
+                if (!like) {
+                    alert("관심상품에 추가되었습니다");
+                } else {
+                    alert("관심상품에서 삭제되었습니다");
+                }
                 setLike(prev => !prev);
             },
         });

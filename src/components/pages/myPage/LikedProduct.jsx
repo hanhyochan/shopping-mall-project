@@ -8,11 +8,8 @@ import CategoryHeader from '../../molecules/CategoryHeader';
 const LikedProduct = () => {
     const { allProductsData, isProductsLoading, productsError } = useAllProducts();
     const { likedProductIdData, isLikedProductLoading, likedProductError } = useLikedProducts();
-    const { allReviewData, isReviewLoading, reviewError } = useAllReview()
+    const { allReviewData, isReviewsLoading, reviewsError } = useAllReview()
     const [likedProducts, setLikedProducts] = useState([])
-
-    if (isProductsLoading || isLikedProductLoading || isReviewLoading) return <div>로딩중입니다</div>;
-    if (productsError || likedProductError || reviewError) return <div>Error fetching data</div>;
 
     useEffect(() => {
         if (allProductsData && likedProductIdData) {
@@ -30,6 +27,9 @@ const LikedProduct = () => {
     const sortByHighPrice = () => {
         setLikedProducts(prev => [...prev].sort((a, b) => b.price - a.price));
     };
+
+    if (isProductsLoading || isLikedProductLoading || isReviewsLoading) return <div>로딩중입니다</div>;
+    if (productsError || likedProductError || reviewsError) return <div>Error fetching data</div>;
 
     return (
         <div className="pt-10">

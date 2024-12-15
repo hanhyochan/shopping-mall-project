@@ -27,7 +27,7 @@ const MyPageLayout = () => {
             <div className="flex justify-between pt-20 md:w-[80vw] xl:w-[90vw] mx-auto gap-[40px]">
                 <div className="h-[500px] bg-white flex justify-center pt-[50px] min-w-[230px]">
                     <div className="flex flex-col gap-[20px] text-sm">
-                        <h2 className="text-lg font-bold">나의 쇼핑정보</h2>
+                        <p className="text-lg font-bold">나의 쇼핑정보</p>
                         <button onClick={() => setMyPageView("orderHistory")}>주문내역</button>
                         <button onClick={() => setMyPageView("shoppingCart")}>장바구니</button>
                         <button onClick={() => setMyPageView("likedProduct")}>관심상품</button>
@@ -37,7 +37,7 @@ const MyPageLayout = () => {
                     </div>
                 </div>
 
-                <div className="h-[500px] bg-white flex-1">{pageComponents[myPageView]}</div>
+                <div className="bg-white flex-1 p-[60px]">{pageComponents[myPageView]}</div>
             </div>
         </>
     );
