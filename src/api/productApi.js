@@ -45,6 +45,16 @@ export const toggleLikedProducts = async id => {
     }
 };
 
+export const DeleteLikedProducts = async id => {
+    try {
+        const response = await apiClient.delete(`/likedProducts/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Error in toggling liked product:", error);
+        throw new Error("상품을 좋아요 처리하는데 오류가 발생했습니다.");
+    }
+};
+
 export const getLikedProductsId = async () => {
     try {
         const response = await apiClient.get("/likedProducts");
