@@ -4,8 +4,7 @@ import SearchInput from "../molecules/SearchInput";
 import { Menu } from "antd";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useQueries } from "@tanstack/react-query";
-import { getAllProduct } from "../../api/productApi";
+import useAllProducts from "../../hooks/useAllProducts";
 
 const CategoryNav = () => {
     const [proCategory, setProCategory] = useState([]);
@@ -13,23 +12,13 @@ const CategoryNav = () => {
     const navigateSub = subCategory => {
         navigate(`category?subcategory=${subCategory}`);
     };
-
-    const [categoryQuery] = useQueries({
-        queries: [
-            {
-                queryKey: ["categoryNav"],
-                queryFn: () => getAllProduct(),
-            }
-        ]
-    })
-
-    const { data: categoryData, isLoading: isProductLoading, error: productError } = categoryQuery;
+    const { allProductsData, isProductsLoading, productsError } = useAllProducts();
 
     useEffect(() => {
-        if (categoryData) {
-            setProCategory(categoryData);
+        if (allProductsData) {
+            setProCategory(allProductsData);
         }
-    }, [categoryData])
+    }, [allProductsData])
 
     const uniqueCategories = [...new Set(proCategory.map(item => item.category))];
 
@@ -47,7 +36,7 @@ const CategoryNav = () => {
             })),
         };
     });
-    
+
     const targetRef = useRef(null);
     const handleScroll = () => {
         const nav = targetRef.current;
@@ -58,15 +47,13 @@ const CategoryNav = () => {
             nav.classList.remove("shadow-md");
         }
     };
-    
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
     }, [targetRef]);
 
-    if (isProductLoading) return <div>로딩중입니다</div>;
-
-    if (productError) return <div>Error fetching data</div>;
-
+    if (isProductsLoading) return <div>로딩중입니다</div>;
+    if (productsError) return <div>Error fetching data</div>;
 
     return (
         <div

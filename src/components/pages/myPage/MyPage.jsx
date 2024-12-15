@@ -42,7 +42,7 @@ const MyPage = () => {
                 </div>
             </div>
 
-            <div className='h-[500px] w-[80%] border border-black flex'>
+            <div className='h-[500px] w-[80%] flex'>
                 <RenderPageView />
             </div>
         </div>
