@@ -71,7 +71,7 @@ const ProductDetail = () => {
                     <div className="flex flex-col-reverse gap-6">
                         <div className="flex flex-col gap-6">
                             <p className="flex flex-row-reverse text-lg font-medium">총 상품 금액 {selectedProduct.price}원</p>
-                            <ProductActions />
+                            <ProductActions selectedProductId={productId} />
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import OrderHistory from './OrderHistory';
 import ShoppingCart from './ShoppingCart';
-import Favorites from './Favorites';
+import LikedProduct from './LikedProduct';
 import RecentlyViewedItems from './RecentlyViewedItems';
 import MyPosts from './MyPosts';
 import AccountSettings from './AccountSettings';
@@ -15,8 +15,8 @@ const MyPage = () => {
                 return <OrderHistory />;
             case 'shoppingCart':
                 return <ShoppingCart />;
-            case 'favorites':
-                return <Favorites />;
+            case 'LikedProduct':
+                return <LikedProduct />;
             case 'recentlyViewedItems':
                 return <RecentlyViewedItems />;
             case 'myPosts':
@@ -35,7 +35,7 @@ const MyPage = () => {
                     <h1 className='text-base font-bold'>나의 쇼핑정보</h1>
                     <span onClick={() => setMyPageView('orderHistory')}>주문내역</span>
                     <span onClick={() => setMyPageView('shoppingCart')}>장바구니</span>
-                    <span onClick={() => setMyPageView('favorites')}>관심상품</span>
+                    <span onClick={() => setMyPageView('LikedProduct')}>관심상품</span>
                     <span onClick={() => setMyPageView('recentlyViewedItems')}>최근본상품</span>
                     <span onClick={() => setMyPageView('myPosts')}>나의 게시글보기</span>
                     <span onClick={() => setMyPageView('accountSettings')}>회원정보변경</span>
