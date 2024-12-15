@@ -69,3 +69,26 @@ body {
         }
     }
 }
+/* table */
+.antd-table thead {
+    background-color: !important #000;
+}
+
+.antd-table th {
+    color: #fff !important;
+    background: #000 !important;
+    text-align: center !important;
+}
+.antd-table th::before {
+    display: none !important;
+}
+.antd-table tr td {
+    text-align: center !important;
+}
+:where(.css-dev-only-do-not-override-49qm).ant-table-wrapper .ant-table-container table > thead > tr:first-child > *:first-child {
+    border-start-start-radius: 0 !important;
+}
+:where(.css-dev-only-do-not-override-49qm).ant-table-wrapper .ant-table-container table > thead > tr:first-child > *:last-child {
+    border-start-start-radius: 0 !important;
+    border-radius: 0;
+}
