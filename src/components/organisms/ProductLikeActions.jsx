@@ -2,8 +2,6 @@ import Button from "../atoms/Button";
 import useDeleteLike from "../../hooks/useDeleteLike";
 
 const ProductLikeActions = ({data}) => {
-    console.log(data);
-    // 좋아요 삭제
     const {mutate} = useDeleteLike();
     const handleDelete = e => {
         e.stopPropagation();

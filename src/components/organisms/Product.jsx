@@ -1,12 +1,12 @@
-import {useState, useEffect} from "react";
-import {useNavigate} from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../atoms/Button";
 import ProductColors from "./ProductColors";
-import {HeartOutlined, HeartFilled} from "@ant-design/icons";
+import { HeartOutlined, HeartFilled } from "@ant-design/icons";
 import useToggleLike from "../../hooks/useToggleLike";
 import useLikedProducts from "../../hooks/useLikedProducts";
 
-const Product = ({data, reviewCount}) => {
+const Product = ({ data, reviewCount }) => {
     const [like, setLike] = useState(false);
     const navigate = useNavigate();
     const {mutate} = useToggleLike();
