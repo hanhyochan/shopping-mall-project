@@ -2615,7 +2615,57 @@
       "id": "7"
     },
     {
-      "id": "8"
+      "id": "1"
+    }
+  ],
+  "recentlyViewed": [
+    {
+      "id": "1",
+      "name": "나그랑 슬릿 기모맨투맨",
+      "price": 23300,
+      "review": 20,
+      "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202212/4856807a1076a4f9c4e60498885032b4.webp",
+      "viewedAt": "2024-12-16T02:50:46.971Z"
+    },
+    {
+      "id": "2",
+      "name": "듀이 모달 반폴라티",
+      "price": 16200,
+      "review": 23,
+      "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202311/d87f4c1d47a68bfec82d1f873e675b0e.webp",
+      "viewedAt": "2024-12-16T02:50:49.827Z"
+    },
+    {
+      "id": "5",
+      "name": "발열기모 보이핏 데님팬츠",
+      "price": 43200,
+      "review": 20,
+      "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202311/761c0342282866fde8eb0ccfefc4399a.webp",
+      "viewedAt": "2024-12-16T02:50:52.639Z"
+    },
+    {
+      "id": "9",
+      "name": "아이비 니트 후드 원피스",
+      "price": 44900,
+      "review": 20,
+      "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+      "viewedAt": "2024-12-16T02:50:55.231Z"
+    },
+    {
+      "id": "15",
+      "name": "샌들_슬리퍼",
+      "price": 44900,
+      "review": 20,
+      "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+      "viewedAt": "2024-12-16T02:50:57.753Z"
+    },
+    {
+      "id": "8",
+      "name": "닥스훈트 프린팅 울니트",
+      "price": 23300,
+      "review": 20,
+      "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/d99767c2a804ae1165580fc028532190.webp",
+      "viewedAt": "2024-12-16T02:51:00.487Z"
     }
   ]
 }

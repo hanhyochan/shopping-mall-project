@@ -149,3 +149,30 @@ export const deleteReview = async reviewId => {
         throw error;
     }
 };
+
+export const saveRecentlyViewed = async product => {
+    try {
+        const response = await apiClient.get("/recentlyViewed");
+        const recentlyViwedProduct = response.data;
+        const isAlreadyViwed = recentlyViwedProduct.some(item => item.id === product.id);
+        if (isAlreadyViwed) return;
+
+        if (!isAlreadyViwed) {
+            const response = await apiClient.post("/recentlyViewed", product);
+            return response.data;
+        }
+    } catch (error) {
+        console.error("Error fetching:", error);
+        throw error;
+    }
+};
+
+export const getRecentlyViewed = async () => {
+    try {
+        const response = await apiClient.get("/recentlyViewed");
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching:", error);
+        throw error;
+    }
+};

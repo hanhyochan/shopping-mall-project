@@ -7,7 +7,6 @@ const Layout = ({children}) => {
     const location = useLocation();
     const isMypage = location.pathname === "/Mypage";
 
-    console.log(isMypage);
     return (
         <>
             <TopNav />

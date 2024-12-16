@@ -3,7 +3,7 @@ import {Row, Col} from "antd";
 import Heading from "../atoms/Heading";
 import Product from "../organisms/Product.jsx";
 
-const ProductList = ({title, data, className, reviewdata}) => {
+const ProductList = ({title, data, className, reviewdata, hideLikeButton = false}) => {
     const getReviewCount = productId => {
         if (!productId || !reviewdata || !Array.isArray(reviewdata)) {
             return 0;
@@ -34,6 +34,7 @@ const ProductList = ({title, data, className, reviewdata}) => {
                             <Product
                                 data={item}
                                 reviewCount={getReviewCount(item.id)}
+                                hideLikeButton={hideLikeButton}
                             />
                         </Col>
                     );
