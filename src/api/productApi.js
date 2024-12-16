@@ -153,14 +153,13 @@ export const deleteReview = async reviewId => {
 export const saveRecentlyViewed = async product => {
     try {
         const response = await apiClient.get("/recentlyViewed");
-        const recentlyViwedProduct = response.data;
-        const isAlreadyViwed = recentlyViwedProduct.some(item => item.id === product.id);
-        if (isAlreadyViwed) return;
+        const recentlyViewedProducts = response.data;
 
-        if (!isAlreadyViwed) {
-            const response = await apiClient.post("/recentlyViewed", product);
-            return response.data;
-        }
+        const isAlreadyViewed = recentlyViewedProducts.some(item => item.id === product.id);
+        if (isAlreadyViewed) return;
+
+        const postResponse = await apiClient.post("/recentlyViewed", product);
+        return postResponse.data;
     } catch (error) {
         console.error("Error fetching:", error);
         throw error;
