@@ -2616,6 +2616,9 @@
     },
     {
       "id": "1"
+    },
+    {
+      "id": "2"
     }
   ],
   "recentlyViewed": [
@@ -2666,6 +2669,30 @@
       "review": 20,
       "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/d99767c2a804ae1165580fc028532190.webp",
       "viewedAt": "2024-12-16T02:51:00.487Z"
+    },
+    {
+      "id": "6",
+      "name": "세상따뜻한 일자 기모본딩슬랙스",
+      "price": 23300,
+      "review": 20,
+      "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/20191227/f3e3e83e735ac49a7e8847f1c3b75fea.webp",
+      "viewedAt": "2024-12-16T03:38:12.949Z"
+    },
+    {
+      "id": "11",
+      "name": "스포츠하의",
+      "price": 44900,
+      "review": 20,
+      "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+      "viewedAt": "2024-12-16T11:50:44.523Z"
+    },
+    {
+      "id": "14",
+      "name": "운동화",
+      "price": 44900,
+      "review": 20,
+      "thumbnail": "https://cafe24img.poxo.com/purple3030/web/product/tiny/202411/e3338db8740c0456de4b92dad198bcc5.webp",
+      "viewedAt": "2024-12-16T11:50:53.149Z"
     }
   ]
 }

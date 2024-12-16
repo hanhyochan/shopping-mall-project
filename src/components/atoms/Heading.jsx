@@ -1,5 +1,6 @@
-const Heading = ({text, className = ""}) => {
-    return <h2 className={`text-3xl ${className}`}>{text}</h2>;
+const Heading = ({text, className = "", type = "h2"}) => {
+    const Tag = type;
+    return <Tag className={`text-3xl ${className}`}>{text}</Tag>;
 };
 
 export default Heading;

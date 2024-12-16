@@ -35,12 +35,13 @@ const ProductLikeList = ({title, data, className}) => {
             ),
         },
     ];
-console.log(data)
+    console.log(data);
     return (
         <>
             <Heading
                 text={`${title} 총 ${data?.length}개`}
                 className={className}
+                type="h3"
             />
             <Table
                 columns={columns}

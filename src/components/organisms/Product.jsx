@@ -82,7 +82,12 @@ const Product = ({data, reviewCount, hideLikeButton = false}) => {
             </div>
             <div className="pt-3 pb-5">
                 <div className="flex justify-between">
-                    <p className="max-w-[calc(100%-80px)] text-sm sm:text-base md:text-lg">{data.name}</p>
+                    <p
+                        className="text-sm sm:text-base md:text-lg"
+                        style={{wordBreak: "keep-all"}}
+                    >
+                        {data.name}
+                    </p>
                     <ProductColors
                         data={data.option_colors}
                         isButton={false}
