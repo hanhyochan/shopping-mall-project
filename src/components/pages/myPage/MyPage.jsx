@@ -1,21 +1,24 @@
 import ProductLikeList from "../../organisms/ProductLikeList";
 import useLikedProducts from "../../../hooks/useLikedProducts";
 import useAllProducts from "../../../hooks/useAllProducts";
+import Heading from "../../atoms/Heading";
 
 const MyPage = () => {
-    const { allProductsData, isProductsLoading, productsError } = useAllProducts();
-    const { likedProductIdData, isLikedProductLoading, likedProductError } = useLikedProducts();
+    const {allProductsData, isProductsLoading, productsError} = useAllProducts();
+    const {likedProductIdData, isLikedProductLoading, likedProductError} = useLikedProducts();
 
     if (isProductsLoading || isLikedProductLoading) return <div>로딩중입니다</div>;
     if (productsError || likedProductError) return <div>Error fetching data</div>;
 
-    const likedProductList = allProductsData.filter(
-        product => likedProductIdData?.some(liked => liked.id === product.id)
-    );
+    const likedProductList = allProductsData.filter(product => likedProductIdData?.some(liked => liked.id === product.id));
 
     return (
         <div>
-            <p>회원이름 님</p>
+            <Heading
+                text="회원이름 님"
+                className="pb-5"
+            />
+
             <ProductLikeList
                 title="나의 관심상품"
                 className="pb-5 text-lg font-bold"

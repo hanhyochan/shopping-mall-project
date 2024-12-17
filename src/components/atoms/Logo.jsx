@@ -1,11 +1,11 @@
 const Logo = ({onClick}) => {
     return (
-        <span
+        <h1
             onClick={onClick}
             className="text-2xl cursor-pointer"
         >
             MyApp
-        </span>
+        </h1>
     );
 };
 
