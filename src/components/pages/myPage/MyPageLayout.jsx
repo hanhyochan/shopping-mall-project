@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import OrderHistory from "./OrderHistory";
 import ShoppingCart from "./ShoppingCart";
-import LikedProduct from "./LikedProduct";
+import LikedProduct from "./likedProduct";
 import MyPage from "./MyPage";
 import MypageHeader from "../../molecules/MypageHeader";
 import RecentlyViewedItems from "./RecentlyViewedItems";
